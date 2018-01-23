@@ -94,10 +94,9 @@ body {
 
 .galaxy {
   /*position: fixed;*/
-  display: block;
-  position: absolute;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 #satelliteTest, #satelliteTest-dummy {
@@ -119,4 +118,22 @@ svg {
   top: 0px;
   left:0px;
   background-color:  none;
+}
+
+.sun {
+  width: 6em;
+  font-size: 4em;
+  line-height: 1.5em;
+  font-family: 'KometBold', sans-serif;
+  color: #fc3d21;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+
+  margin: 0 auto;
+   position: absolute;
+   top: 50%;
+   left: calc(50% - 3.2em);
+   margin-right: -50%;
+   transform: translate(-50%, -50%)
+  /* margin-left: -3.2em; */
 }
