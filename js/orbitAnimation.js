@@ -12,8 +12,12 @@ var DIRECTION = -1;
 var TWO_PI = Math.PI * 2;
 var RADIUS_MODIFIER = 1;
 var RADIUS_MODIFIER_MIN = 1;
-var RADIUS_MODIFIER_MAX = 10; //higher = end state
-var RADIUS_MODIFIER_INC= 0.02; //higher = more speed
+var RADIUS_MODIFIER_MAX = 4; //higher = end state
+var RADIUS_MODIFIER_INC= 0.005; //higher = more speed
+var SPEED_MODIFIER = 1;
+var SPEED_MODIFIER_MIN = 1;
+var SPEED_MODIFIER_MAX = 5; //higher = end state
+var SPEED_MODIFIER_INC= 0.04; //higher = more speed
 var DEBUG_VIEW = true;
 var ELLIPSE_WIDTH_DEFAULT = 0.8;
 var ELLIPSE_PROPORTION = 0.4;
@@ -146,11 +150,18 @@ function animateOrbits(timestamp) {
 	//console.log(then, elapsed);
 	if (STATE === "SLINGSHOT") {
 		RADIUS_MODIFIER *= (1 + RADIUS_MODIFIER_INC);
+		SPEED_MODIFIER *= (1 + SPEED_MODIFIER_INC);
 	} else {
 		RADIUS_MODIFIER *= (1 - RADIUS_MODIFIER_INC);
+		SPEED_MODIFIER *= (1 - SPEED_MODIFIER_INC);
+	}
+	if (RADIUS_MODIFIER > RADIUS_MODIFIER_MAX) {
+		STATE = "NORMAL";
 	}
 	RADIUS_MODIFIER = Math.max(RADIUS_MODIFIER, RADIUS_MODIFIER_MIN);
 	RADIUS_MODIFIER = Math.min(RADIUS_MODIFIER, RADIUS_MODIFIER_MAX);
+	SPEED_MODIFIER = Math.max(SPEED_MODIFIER, SPEED_MODIFIER_MIN);
+	SPEED_MODIFIER = Math.min(SPEED_MODIFIER, SPEED_MODIFIER_MAX);
 
 
 	options.forEach(function(opt) {
@@ -158,7 +169,7 @@ function animateOrbits(timestamp) {
 		var center = getParentCenter(element);
 		switch(STATE) {
 			case "NORMAL":
-			  opt.currentAngle += opt.angularSpeed * RADIUS_MODIFIER * elapsed* DIRECTION;
+			  opt.currentAngle += opt.angularSpeed * easedSpeedMod() * elapsed* DIRECTION;
 			  opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
 
 				opt.homecomingStartAngle = opt.currentAngle;
@@ -169,12 +180,12 @@ function animateOrbits(timestamp) {
 					}
 				}
 				opt.homecomingSpeed = deltaAngle / HOMECOMING_DURATION;
-				console.log(opt.homecomingSpeed);
+				//console.log(opt.homecomingSpeed);
 				//opt.currentAngle = opt.currentAngle % TWO_PI;
 				HOMECOMING_START = timestamp;
 			break;
 			case "SLINGSHOT":
-				opt.currentAngle += opt.angularSpeed * RADIUS_MODIFIER * elapsed* DIRECTION;
+				opt.currentAngle += opt.angularSpeed * easedRadiusMod() * elapsed* DIRECTION;
 				opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
 				// opt.homecomingStartAngle = opt.currentAngle;
 				// //opt.currentAngle = opt.currentAngle % TWO_PI;
@@ -204,8 +215,8 @@ function animateOrbits(timestamp) {
 				console.log(deltaTime);
 			break;
 		}
-		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * RADIUS_MODIFIER;
-		var y = center.y + Math.sin(opt.currentAngle) * opt.radiusB * RADIUS_MODIFIER;
+		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * easedRadiusMod();
+		var y = center.y + Math.sin(opt.currentAngle) * opt.radiusB * easedRadiusMod();
 
 		var offsets = element.getBoundingClientRect();
 		// element.style.left = (x - offsets.width * 0.5) + 'px';
@@ -230,6 +241,18 @@ function easeOut(current, total) {
 	//return Math.cos(current/total * Math.PI * 0.5) * total;
 	var f = current / total;
 	return Math.pow(f, 2) * total;
+}
+function easeInOut(current, min, max) {
+	var f = (current - min) / (max - min);
+	var fEased = Math.cos(f*Math.PI + Math.PI)*0.5 + 0.5;
+	return fEased * (max - min) + min;
+}
+
+function easedRadiusMod() {
+	return easeInOut(RADIUS_MODIFIER, RADIUS_MODIFIER_MAX, RADIUS_MODIFIER_MIN);
+}
+function easedSpeedMod() {
+	return easeInOut(SPEED_MODIFIER, SPEED_MODIFIER_MAX, SPEED_MODIFIER_MIN);
 }
 
 //window.onload = init;
