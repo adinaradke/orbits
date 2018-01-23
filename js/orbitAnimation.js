@@ -8,7 +8,7 @@ var then;
 var STATE = "NORMAL";
 var HOMECOMING_START;
 var HOMECOMING_DURATION = 2000; //in millis
-var DIRECTION = 1;
+var DIRECTION = -1;
 var TWO_PI = Math.PI * 2;
 var RADIUS_MODIFIER = 1;
 var RADIUS_MODIFIER_MIN = 1;
@@ -158,24 +158,50 @@ function animateOrbits(timestamp) {
 		var center = getParentCenter(element);
 		switch(STATE) {
 			case "NORMAL":
+			  opt.currentAngle += opt.angularSpeed * RADIUS_MODIFIER * elapsed* DIRECTION;
+			  opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
+
+				opt.homecomingStartAngle = opt.currentAngle;
+				var deltaAngle = (opt.startAngle - opt.homecomingStartAngle) * DIRECTION;
+				if (DIRECTION === -1) {
+					if (opt.startAngle - opt.homecomingStartAngle > 0) {
+						deltaAngle = deltaAngle + TWO_PI;
+					}
+				}
+				opt.homecomingSpeed = deltaAngle / HOMECOMING_DURATION;
+				console.log(opt.homecomingSpeed);
+				//opt.currentAngle = opt.currentAngle % TWO_PI;
+				HOMECOMING_START = timestamp;
+			break;
 			case "SLINGSHOT":
 				opt.currentAngle += opt.angularSpeed * RADIUS_MODIFIER * elapsed* DIRECTION;
-				opt.currentAngle = opt.currentAngle % TWO_PI;
-				HOMECOMING_START = timestamp;
+				opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
+				// opt.homecomingStartAngle = opt.currentAngle;
+				// //opt.currentAngle = opt.currentAngle % TWO_PI;
+				// HOMECOMING_START = timestamp;
 			break;
 			case "HOMECOMING":
 				//console.log("foo");
-				var deltaAngle = opt.startAngle - opt.currentAngle;
-
-				var deltaTime = Math.max(HOMECOMING_START + HOMECOMING_DURATION - timestamp, 0);
-				if (deltaTime < 100) {
+				/*
+				var deltaAngle = opt.startAngle - opt.homecomingStartAngle;
+				if (DIRECTION === -1) {
+					if (deltaAngle < 0) {
+						deltaAngle = opt.startAngle - opt.homecomingStartAngle + TWO_PI;
+					}
+				}
+				*/
+				var deltaTime = timestamp - HOMECOMING_START;
+				//var deltaTime = elapsed;
+				if (deltaTime > HOMECOMING_DURATION - 10) {
 					opt.currentAngle = opt.startAngle;
 				} else {
-					deltaTime = easeOut(deltaTime, HOMECOMING_DURATION);
-					var angularSpeed = deltaAngle / deltaTime;
-					opt.currentAngle += (angularSpeed * elapsed) * DIRECTION;
-					opt.currentAngle = opt.currentAngle % TWO_PI;
+					//deltaTime = easeOut(deltaTime, HOMECOMING_DURATION);
+					// var angularSpeed = deltaAngle / HOMECOMING_DURATION;
+					opt.currentAngle += (opt.homecomingSpeed * elapsed) * DIRECTION;
+					//opt.currentAngle = opt.currentAngle % TWO_PI;
+					opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
 				}
+				console.log(deltaTime);
 			break;
 		}
 		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * RADIUS_MODIFIER;
