@@ -2,7 +2,7 @@
 //var speed = -0.005;
 var theta = 0;
 // less than one means it has landscape orientation
-var ELLIPSE_FACTOR = 0.5;
+var ELLIPSE_PROPORTION = 0.5;
 //var radiusA = 300;
 //var radiusB = 100;
 var then;
@@ -16,23 +16,34 @@ var RADIUS_MODIFIER_MIN = 1;
 var RADIUS_MODIFIER_MAX = 10; //higher = end state
 var RADIUS_MODIFIER_INC= 0.02; //higher = more speed
 var DEBUG_VIEW = true;
+var ELLIPSE_WIDTH_DEFAULT = 0.8;
+var ELLIPSE_HEIGHT_DEFAULT = 0.6;
 
 var options = [
 	{
 		id: "satelliteTest",
 		duration: "30", //in seconds
-		//ellipseWidth: 0.8,
-		//ellipseHeight: 0.6,
-		ellipseFactor: ELLIPSE_FACTOR
+		ellipseWidthFactor: 0.8,
+		//ellipseHeightFactor: 0.6,
+		ellipseProportion: ELLIPSE_PROPORTION,
+		startAngle: 270, //in degrees! [0°, 360°]
+		//ellipseFactor: ELLIPSE_FACTOR
 	}
 ]
 
-function getCenter(element) {
+function getParentCenter(element) {
 	var parentBoundingRect = element.parentNode.getBoundingClientRect();
 	var centerX = parentBoundingRect.left + parentBoundingRect.width * 0.5;
 	var centerY = parentBoundingRect.top + parentBoundingRect.height * 0.5;
 	//console.log(centerX, centerY);
 	return {x: centerX, y: centerY};
+}
+function getParentSize(element) {
+	var parentBoundingRect = element.parentNode.getBoundingClientRect();
+	var w = parentBoundingRect.width;
+	var h = parentBoundingRect.height;
+	//console.log(centerX, centerY);
+	return {width: w, height: h};
 }
 
 /*
@@ -53,7 +64,8 @@ function init() {
 		var satBoundingRect = satellite.getBoundingClientRect();
 
 		var container = satellite.parentNode;
-		var center = getCenter(satellite);
+		var center = getParentCenter(satellite);
+		var containerSize = getParentSize(satellite);
 
 		//var startX = satBoundingRect.left + satBoundingRect.width * 0.5;
 		//var startY = satBoundingRect.top + satBoundingRect.height * 0.5;
@@ -61,19 +73,27 @@ function init() {
 		var startY = satBoundingRect.top;
 
 		//console.log(center.x, center.y);
-		var dx = startX - center.x;
-		var dy = startY - center.y;
+		//var dx = startX - center.x;
+		//var dy = startY - center.y;
 
-		var startAngle = Math.atan2(dy / option.ellipseFactor, dx);
-		var radiusB = dy / Math.sin(startAngle);
-		var radiusA = dx / Math.cos(startAngle);
+		//var startAngle = Math.atan2(dy / option.ellipseFactor, dx);
+		//var radiusB = dy / Math.sin(startAngle);
+		//var radiusA = dx / Math.cos(startAngle);
+
+		var ellipseWidthFactor = option.ellipseWidthFactor || ELLIPSE_WIDTH_DEFAULT;
+		//var ellipseHeightFactor = option.ellipseHeightFactor || ELLIPSE_HEIGHT_DEFAULT;
+		var ellipseProportion = option.ellipseProportion || ELLIPSE_PROPORTION;
+
+
+		var radiusA = containerSize.width * 0.5 * ellipseWidthFactor;
+		var radiusB = radiusA * ellipseProportion;
 		var angularSpeed = TWO_PI / option.duration / 1000.0;
 
-		option.startAngle = startAngle % TWO_PI;
+		//option.startAngle = startAngle % TWO_PI;
 		option.radiusA = radiusA;
 		option.radiusB = radiusB;
 		option.angularSpeed = angularSpeed;
-		option.currentAngle = option.startAngle;
+		option.currentAngle = (option.startAngle || 0) / 180.0 * Math.PI;
 
 		if (DEBUG_VIEW) {
 
@@ -120,7 +140,7 @@ function animateOrbits(timestamp) {
 
 	options.forEach(function(opt) {
 		var element = document.getElementById(opt.id);
-		var center = getCenter(element);
+		var center = getParentCenter(element);
 		switch(STATE) {
 			case "NORMAL":
 			case "SLINGSHOT":
