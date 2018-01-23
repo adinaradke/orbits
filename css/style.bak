@@ -21,12 +21,6 @@
   margin-left: -3.2em;
 }
 
-
-#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
-  font-size: 2.2em;
-  line-height: 1.6em;
-}
-
 .pos {
   /*position: relative;*/
 }

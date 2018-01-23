@@ -111,6 +111,13 @@ body {
   */
 }
 
+#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
+  font-size: 2.2em;
+  line-height: 1.6em;
+  position: fixed;
+  width: 18em; 
+}
+
 svg {
   width: 100vw;
   height: 100vh;

@@ -2,7 +2,6 @@
 //var speed = -0.005;
 var theta = 0;
 // less than one means it has landscape orientation
-var ELLIPSE_PROPORTION = 0.5;
 //var radiusA = 300;
 //var radiusB = 100;
 var then;
@@ -17,17 +16,29 @@ var RADIUS_MODIFIER_MAX = 10; //higher = end state
 var RADIUS_MODIFIER_INC= 0.02; //higher = more speed
 var DEBUG_VIEW = true;
 var ELLIPSE_WIDTH_DEFAULT = 0.8;
-var ELLIPSE_HEIGHT_DEFAULT = 0.6;
+var ELLIPSE_PROPORTION = 0.4;
 
 var options = [
+	// {
+	// 	id: "satelliteTest",
+	// 	duration: "30", //in seconds
+	// 	ellipseWidthFactor: 0.8,
+	// 	ellipseProportion: ELLIPSE_PROPORTION,
+	// 	startAngle: 270 //in degrees! [0°, 360°]
+	// },
 	{
-		id: "satelliteTest",
+		id: "navitem--sub--1",
+		duration: "10", //in seconds
+		ellipseWidthFactor: 0.75,
+		ellipseProportion: 0.3,
+		startAngle: 20 //in degrees! [0°, 360°]
+	},
+	{
+		id: "navitem--sub--2",
 		duration: "30", //in seconds
-		ellipseWidthFactor: 0.8,
-		//ellipseHeightFactor: 0.6,
-		ellipseProportion: ELLIPSE_PROPORTION,
-		startAngle: 270, //in degrees! [0°, 360°]
-		//ellipseFactor: ELLIPSE_FACTOR
+		ellipseWidthFactor: 0.85,
+		ellipseProportion: 0.3,
+		startAngle: 270 //in degrees! [0°, 360°]
 	}
 ]
 
@@ -61,6 +72,9 @@ function init() {
 
 	options.forEach(function(option) {
 		var satellite = document.getElementById(option.id);
+		if (!satellite) {
+			return;
+		}
 		var satBoundingRect = satellite.getBoundingClientRect();
 
 		var container = satellite.parentNode;
@@ -93,7 +107,8 @@ function init() {
 		option.radiusA = radiusA;
 		option.radiusB = radiusB;
 		option.angularSpeed = angularSpeed;
-		option.currentAngle = (option.startAngle || 0) / 180.0 * Math.PI;
+		option.startAngle = (option.startAngle || 0) / 180.0 * Math.PI;
+		option.currentAngle = option.startAngle;
 
 		if (DEBUG_VIEW) {
 
@@ -122,7 +137,7 @@ function init() {
 }
 
 function animateOrbits(timestamp) {
-	console.log(RADIUS_MODIFIER);
+	//console.log(RADIUS_MODIFIER);
 	var elapsed = 0;
 	if (then !== undefined) {
 		elapsed = timestamp - then;
