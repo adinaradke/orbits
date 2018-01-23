@@ -97,14 +97,14 @@ img {
 
 #universe {
   z-index: 1;
-  position: fixed;
+  /*position: fixed;*/
   /*overflow: hidden;*/
   width: 100%;
   height: 100%;
 }
   
 #galaxy {
-  position: fixed;
+  /*position: fixed;*/
   width: 100%;
   height: 100%;
   /*transform: rotateX(75deg);*/
@@ -113,8 +113,8 @@ img {
 
 #navitem, .subitem {
   position: fixed;
-  top: 10em;
-  left: 20em;
+  top: 6em;
+  left: 12em;
 /*  margin-top: -0.5em;
   margin-left: -0.5em;*/
   /*transform-style: preserve-3d;*/
@@ -140,42 +140,20 @@ img {
 }
 
 .pos {
-  position: fixed;
-  /*
-  transform-style: preserve-3d;
-  animation-name: invert;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  */
+  /*position: relative;*/
 }
 
 .subitem, .subitemtwo {
-  /*background-repeat: no-repeat;
-  background-size: cover;*/
-/*  animation-iteration-count: infinite;
-  animation-timing-function: linear;*/
   width: 18em;
 }
 
-.orbit {
+/*.orbit {
   position: fixed;
-  top: 20%;
-  left: 35%;
+  top: 0%;
+  left: 12%;
   border: 0px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  /*animation-name: orbit;*/
-  /*animation-iteration-count: infinite;*/
-  /*animation-timing-function: linear; */
-  /*transform-style: preserve-3d;*/
-}
-
-.orbit-infinite {
-  /*animation-iteration-count: infinite;*/
-}
-
-.orbit-once {
-  /*animation-iteration-count: 1;*/
-}
+}*/
 
 
 /*.orbittwo {
@@ -191,18 +169,7 @@ img {
 /*}*/
 
 
-/* Animations */
-/*
-@keyframes orbit {
-  0%   { transform: rotateZ(0deg); }
-  100% { transform: rotateZ(-360deg); } 
-}
 
-@keyframes invert {
-  0%   { transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg); }
-  100% { transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg); } 
-}
-*/
 /* Orbit sizes */
 #navitem--sub--1.orbit, #navitem--sub--1.orbittwo {
   width: 12em;
@@ -240,31 +207,31 @@ img {
 }
 
 /* Planet starting positions */
-#navitem--sub--1 .pos {
-  left: 20%;
+#navitem--sub--1 {
+  left: 12%;
   top: -1px; 
   border: 0px;
 } 
 
-#navitem--sub--2 .pos {
-  left: 50%;
+#navitem--sub--2{
+  left: 36%;
   top: -1px; 
   border: 0px;
 }
 
-#navitem--sub--3 .pos {
-  left: 90%;
+#navitem--sub--3{
+  left: 102%;
   top: -1px; 
   border: 0px;
 }
 
-#navitem--sub--4 .pos {
-  left: 15%;
+#navitem--sub--4 {
+  left: 18%;
   top: -1px; 
   border: 0px;
 }
 
-#navitem--sub--5 .pos {
+#navitem--sub--5 {
   left: 15%;
   top: -1px; 
   border: 0px;
@@ -299,25 +266,3 @@ img {
   left: 60%;
   top: 20%;
 }
-/* Planet animation durations */
-/*
-#navitem--sub--1.orbit, #navitem--sub--1 .pos {
-  animation-duration: 30s;
-}
-
-#navitem--sub--2.orbit, #navitem--sub--2 .pos {
-  animation-duration: 60s;
-}
-
-#navitem--sub--3.orbit, #navitem--sub--3 .pos {
-  animation-duration: 90s;
-}
-
-#navitem--sub--4.orbit, #navitem--sub--4 .pos {
-  animation-duration: 120s;
-}
-
-#navitem--sub--5.orbit, #navitem--sub--5 .pos {
-  animation-duration: 150s;
-}
-*/
