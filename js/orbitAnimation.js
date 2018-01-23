@@ -74,6 +74,20 @@ function constrainAngle(angle) {
 */
 function init() {
 
+	window.addEventListener('keydown', function(e) {
+		//e.preventDefault();
+		console.log(e);
+		switch(e.key) {
+			case " ":
+				STATE = "HOMECOMING";
+			break;
+			case "g":
+			case "G":
+				STATE = "SLINGSHOT";
+			break;
+		}
+	});
+
 	options.forEach(function(option) {
 		var satellite = document.getElementById(option.id);
 		if (!satellite) {
@@ -255,26 +269,6 @@ function easedSpeedMod() {
 	return easeInOut(SPEED_MODIFIER, SPEED_MODIFIER_MAX, SPEED_MODIFIER_MIN);
 }
 
-//window.onload = init;
-window.addEventListener('load', init);
-/*
-window.addEventListener('scroll', function(e) {
-	e.preventDefault();
-	console.log(e);
-	//alert(e);
-	STATE = "HOMECOMING";
-});
-*/
-window.addEventListener('keydown', function(e) {
-	//e.preventDefault();
-	console.log(e);
-	switch(e.key) {
-		case " ":
-			STATE = "HOMECOMING";
-		break;
-		case "g":
-		case "G":
-			STATE = "SLINGSHOT";
-		break;
-	}
-});
+module.exports = {
+	init
+}
