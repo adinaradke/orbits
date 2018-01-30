@@ -34,34 +34,49 @@ var options = [
 	{
 		id: "navitem--sub--1",
 		duration: "10", //in seconds
-		ellipseWidthFactor: 0.75,
+		//ellipseWidthFactor: 0.75, //deprecated
 		ellipseProportion: 0.3,
-		startAngle: 20 //in degrees! [0°, 360°]
+		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originSelector: ".sun", //defaults to ".sun"
+		//startAngle: 20 //in degrees! [0°, 360°] //deprecated
 	},
 	{
 		id: "navitem--sub--2",
 		duration: "30", //in seconds
-		ellipseWidthFactor: 0.85,
+		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.3,
-		startAngle: 270 //in degrees! [0°, 360°]
+		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originSelector: ".sun", //defaults to ".sun"
+		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
 	}
 ]
 
-function getParentCenter(element) {
-	var parentBoundingRect = element.parentNode.getBoundingClientRect();
+function getParentCenter(theChild) {
+	var parentBoundingRect = theChild.parentNode.getBoundingClientRect();
 	var centerX = parentBoundingRect.left + parentBoundingRect.width * 0.5;
 	var centerY = parentBoundingRect.top + parentBoundingRect.height * 0.5;
 	//console.log(centerX, centerY);
 	return {x: centerX, y: centerY};
 }
-function getParentSize(element) {
-	var parentBoundingRect = element.parentNode.getBoundingClientRect();
+function getParentSize(theChild) {
+	var parentBoundingRect = theChild.parentNode.getBoundingClientRect();
 	var w = parentBoundingRect.width;
 	var h = parentBoundingRect.height;
 	//console.log(centerX, centerY);
 	return {width: w, height: h};
 }
 
+function getCenter(sat, opt) {
+	//TODO: shift center!!!
+	var parent = sat.parentNode;
+	// console.log(parent);
+	var sun = parent.querySelector(opt.originSelector);
+	 // console.log(parent.querySelector(opt.originSelector));
+	var bb = sun.getBoundingClientRect();
+	var centerX = bb.left + bb.width * opt.originCenter[0];
+	var centerY = bb.top + bb.height * opt.originCenter[1];
+	return {x: centerX, y: centerY};
+}
 /*
 function constrainAngle(angle) {
 	while(angle > Math.PI) {
@@ -95,11 +110,16 @@ function init() {
 			return;
 		}
 		satellites[option.id] = satellite;
+
+		option.originCenter = option.originCenter || [0.5, 0.5];
+		option.originSelector = option.originSelector || ".sun";
+		option.ellipseProportion = option.ellipseProportion || ELLIPSE_PROPORTION;
+
 		var satBoundingRect = satellite.getBoundingClientRect();
 
 		var container = satellite.parentNode;
-		var center = getParentCenter(satellite);
-		var containerSize = getParentSize(satellite);
+		var center = getCenter(satellite, option);
+		//var containerSize = getParentSize(satellite);
 
 		//var startX = satBoundingRect.left + satBoundingRect.width * 0.5;
 		//var startY = satBoundingRect.top + satBoundingRect.height * 0.5;
@@ -107,28 +127,27 @@ function init() {
 		var startY = satBoundingRect.top;
 
 		//console.log(center.x, center.y);
-		//var dx = startX - center.x;
-		//var dy = startY - center.y;
+		var dx = startX - center.x;
+		var dy = startY - center.y;
 
-		//var startAngle = Math.atan2(dy / option.ellipseFactor, dx);
-		//var radiusB = dy / Math.sin(startAngle);
-		//var radiusA = dx / Math.cos(startAngle);
-
-		var ellipseWidthFactor = option.ellipseWidthFactor || ELLIPSE_WIDTH_DEFAULT;
+		var startAngle = Math.atan2(dy / option.ellipseProportion, dx);
+		var radiusB = Math.abs(dy / Math.sin(startAngle));
+		var radiusA = Math.abs(dx / Math.cos(startAngle));
+		console.log(dx, dy);
+		//var ellipseWidthFactor = option.ellipseWidthFactor || ELLIPSE_WIDTH_DEFAULT;
 		//var ellipseHeightFactor = option.ellipseHeightFactor || ELLIPSE_HEIGHT_DEFAULT;
-		var ellipseProportion = option.ellipseProportion || ELLIPSE_PROPORTION;
 
-
-		var radiusA = containerSize.width * 0.5 * ellipseWidthFactor;
-		var radiusB = radiusA * ellipseProportion;
+		//var radiusA = containerSize.width * 0.5 * ellipseWidthFactor;
+		//var radiusB = radiusA * ellipseProportion;
 		var angularSpeed = TWO_PI / option.duration / 1000.0;
 
 		//option.startAngle = startAngle % TWO_PI;
 		option.radiusA = radiusA;
 		option.radiusB = radiusB;
 		option.angularSpeed = angularSpeed;
-		option.startAngle = (option.startAngle || 0) / 180.0 * Math.PI;
+		option.startAngle = startAngle;
 		option.currentAngle = option.startAngle;
+		option.center = center;
 
 		if (DEBUG_VIEW) {
 
@@ -150,6 +169,20 @@ function init() {
 			ellipse.setAttributeNS(null,"fill", "none");
 
 			svgElement.appendChild(ellipse);
+
+			var cross = document.createElementNS(xmlns, "path");
+			var s = 20; //cross size in pixels
+			var x0 = center.x;
+			var y0 = center.y;
+			var x1 = center.x - s * 0.5;
+			var y1 = center.y - s * 0.5;
+
+			cross.setAttributeNS(null,"stroke", "white");
+			cross.setAttributeNS(null,"stroke-width", 1);
+			cross.setAttributeNS(null,"fill", "none");
+			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
+			svgElement.appendChild(cross);
+
 		}
 	});
 	console.log(options);
@@ -183,7 +216,8 @@ function animateOrbits(timestamp) {
 	options.forEach(function(opt) {
 		//var element = document.getElementById(opt.id);
 		var element = satellites[opt.id];
-		var center = getParentCenter(element);
+		// var center = getParentCenter(element);
+		var center = opt.center;
 		switch(STATE) {
 			case "NORMAL":
 			  opt.currentAngle += opt.angularSpeed * easedSpeedMod() * elapsed* DIRECTION;
