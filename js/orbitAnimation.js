@@ -33,7 +33,7 @@ var options = [
 	// },
 	{
 		id: "navitem--sub--1",
-		duration: "10", //in seconds
+		duration: 10, //in seconds
 		//ellipseWidthFactor: 0.75, //deprecated
 		ellipseProportion: 0.3,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
@@ -42,7 +42,7 @@ var options = [
 	},
 	{
 		id: "navitem--sub--2",
-		duration: "30", //in seconds
+		duration: 1000, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.3,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
