@@ -1,3 +1,24 @@
+/* Keyword values */
+/* font-smooth: auto; */
+/* font-smooth: never; */
+font-smooth: always;
+
+/* <length> value */
+font-smooth: 10em;
+/* -webkit-font-smoothing: always; */
+
+/* -webkit-font-smoothing: none; */
+/* -webkit-font-smoothing: subpixel-antialiased; */
+-webkit-font-smoothing: antialiased;
+
+-moz-osx-font-smoothing: greyscale;
+text-rendering: optimizeLegibility;
+
+transform-style: preserve-3d;
+transform: rotate(90);
+
+/* transform: perspective(1px) scale(1.1); */
+
 
 #navitem, .subitem {
   position: fixed;
