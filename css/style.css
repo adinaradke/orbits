@@ -23,7 +23,7 @@ ol, ul {
 }
 
 blockquote, q {
-  quotes: none; 
+  quotes: none;
 }
 
 blockquote:before, blockquote:after, q:before, q:after {
@@ -44,47 +44,33 @@ table {
 
 
 @font-face {
-  font-family: "KometBold";
+  font-family: "AdisKomet";
   src: url("../fnt/Komet-Bold.woff");
-}
-
-/*@font-face {
-  font-family: "Marat";
-  src: url("../fnt/MaratWeb-Light.woff");
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
-*/
+
 @font-face {
-  font-family: "Marat";
+  font-family: "AdisMarat";
   src: url("../fnt/MaratWeb-Bold.woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MaratWeb";
+  font-family: "AdisMarat";
   src: url("../fnt/MaratWeb-Light.woff");
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: "BrentaWeb";
-  src: url("../fnt/BrentaWeb-Light.woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
 body {
-  font-size: 10px;
-  font-family: 'BrentaWeb', serif;
+  font-size: 1em;
+  font-family: 'AdisMarat', serif;
   color: white;
-  background-color: #0b3d91;
   overflow: hidden;
-}
 
-body {
   background: linear-gradient(183deg, rgba(252,61,33,0.5) 1%, rgba(252,61,33,0) 60%), 
               linear-gradient(250deg, rgba(252,61,33,0) 10%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),
               /*linear-gradient(250deg, rgba(252,61,33,0) 23%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),
@@ -96,19 +82,13 @@ body {
   background-attachment: fixed;
 }
 
-::selection {
-    color: #ff1493;
-    background: #9932cc;
-}
-
-
 img {
   height: 12em;
   opacity: 0.5;
 }
 
 .teaser {
-  font-family: 'MaratWeb', serif;
+  font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.8em;
   line-height: 1.4em;
@@ -116,172 +96,63 @@ img {
 
 #universe {
   z-index: 1;
-  /*position: fixed;*/
-  /*overflow: hidden;*/
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.galaxy {
   width: 100%;
   height: 100%;
-}
-  
-#galaxy {
-  /*position: fixed;*/
-  width: 100%;
-  height: 100%;
-  /*transform: rotateX(75deg);*/
-  /*transform-style: preserve-3d;*/
+  position: relative;
 }
 
-#navitem, .subitem {
-  position: fixed;
-  top: 6em;
-  left: 12em;
-/*  margin-top: -0.5em;
-  margin-left: -0.5em;*/
-  /*transform-style: preserve-3d;*/
-}
-
-
-#navitem { 
-  width: 6em;
-  font-size: 4em;
-  line-height: 1.5em;
-  /*transform: rotateX(-75deg);*/
-  font-family: 'KometBold', sans-serif;
-  color: #fc3d21;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-left: -3.2em;
-}
-
-
-#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
-  font-size: 2.2em;
-  line-height: 1.6em;
-}
-
-.pos {
-  /*position: relative;*/
-}
-
-.subitem, .subitemtwo {
-  width: 18em;
-}
-
-/*.orbit {
-  position: fixed;
-  top: 0%;
-  left: 12%;
-  border: 0px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}*/
-
-
-/*.orbittwo {
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  border: 0px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;*/
-/*  animation-name: orbit;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; 
-  transform-style: preserve-3d;*/
-/*}*/
-
-
-
-/* Orbit sizes */
-#navitem--sub--1.orbit, #navitem--sub--1.orbittwo {
-  width: 12em;
-  height: 12em;
-  margin-top: -6em;
-  margin-left: -6em; 
-}
-
-#navitem--sub--2.orbit, #navitem--sub--2.orbittwo {
-  width: 18em;
-  height: 18em;
-  margin-top: -9em;
-  margin-left: -9em; 
-}
-
-#navitem--sub--3.orbit, #navitem--sub--3.orbittwo {
-  width: 24em;
-  height: 24em;
-  margin-top: -12em;
-  margin-left: -12em; 
-}
-
-#navitem--sub--4.orbit, #navitem--sub--4.orbittwo {
-  width: 30em;
-  height: 30em;
-  margin-top: -15em;
-  margin-left: -15em; 
-}
-
-#navitem--sub--5.orbit, #navitem--sub--5.orbittwo {
-  width: 36em;
-  height: 36em;
-  margin-top: -18em;
-  margin-left: -18em; 
-}
-
-/* Planet starting positions */
-#navitem--sub--1 {
-  left: 12%;
-  top: -1px; 
-  border: 0px;
-} 
-
-#navitem--sub--2{
-  left: 36%;
-  top: -1px; 
-  border: 0px;
-}
-
-#navitem--sub--3{
-  left: 102%;
-  top: -1px; 
-  border: 0px;
-}
-
-#navitem--sub--4 {
-  left: 18%;
-  top: -1px; 
-  border: 0px;
-}
-
-#navitem--sub--5 {
-  left: 15%;
-  top: -1px; 
-  border: 0px;
-}
-
-#test, #test-alt {
+#satelliteTest, #satelliteTest-dummy {
   width: 100px;
   height: 50px;
   background-color: rgba(255, 255, 0, 0.3);
   position: fixed;
-/*  left: calc(50% - 50px);
-  top: calc(50% - 25px);
-*/  
-  left: 20%;
-  top: 20%;
 }
 
-#test2, #test2-alt {
-  width: 100px;
-  height: 50px;
-  background-color: rgba(255, 0, 255, 0.3);
+#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
+  font-size: 2.2em;
+  line-height: 1.6em;
   position: fixed;
-  left: 20%;
-  top: 60%;
+  width: 18em;
+}
+#navitem--sub--2 {
+  left: 10%;
+  top: 40%;
+  background-color: rgba(255,0,0,0.5);
 }
 
-#test3, #test3-alt {
-  width: 100px;
-  height: 50px;
-  background-color: rgba(0, 255, 255, 0.3);
+svg {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  left: 60%;
-  top: 20%;
+  top: 0px;
+  left:0px;
+  background-color:  none;
+}
+
+.sun {
+  width: 6em;
+  font-size: 4em;
+  line-height: 1.5em;
+  font-family: 'AdisKomet', sans-serif;
+  color: #fc3d21;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 3.2em);
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+iframe {
+  width: 1000px;
+  height: auto;
 }

@@ -1,0 +1,27 @@
+{
+  "name": "orbits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pop-motion-test": "watchify js/popMotionTest.js -o dist/bundle.js",
+    "watch": "watchify js/main.js -o dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adinaradke/orbits.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adinaradke/orbits/issues"
+  },
+  "homepage": "https://github.com/adinaradke/orbits#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "popmotion": "^8.1.9",
+    "request": "^2.83.0",
+    "watchify": "^3.9.0"
+  }
+}
