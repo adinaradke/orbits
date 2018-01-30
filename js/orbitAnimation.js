@@ -21,6 +21,7 @@ var SPEED_MODIFIER_INC= 0.04; //higher = more speed
 var DEBUG_VIEW = true;
 var ELLIPSE_WIDTH_DEFAULT = 0.8;
 var ELLIPSE_PROPORTION = 0.4;
+var satellites = {};
 
 var options = [
 	// {
@@ -93,6 +94,7 @@ function init() {
 		if (!satellite) {
 			return;
 		}
+		satellites[option.id] = satellite;
 		var satBoundingRect = satellite.getBoundingClientRect();
 
 		var container = satellite.parentNode;
@@ -179,7 +181,8 @@ function animateOrbits(timestamp) {
 
 
 	options.forEach(function(opt) {
-		var element = document.getElementById(opt.id);
+		//var element = document.getElementById(opt.id);
+		var element = satellites[opt.id];
 		var center = getParentCenter(element);
 		switch(STATE) {
 			case "NORMAL":
