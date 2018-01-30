@@ -48,13 +48,13 @@ table {
   src: url("../fnt/Komet-Bold.woff");
 }
 
-@font-face {
+/*@font-face {
   font-family: "Marat";
   src: url("../fnt/MaratWeb-Light.woff");
   font-weight: normal;
   font-style: normal;
 }
-
+*/
 @font-face {
   font-family: "Marat";
   src: url("../fnt/MaratWeb-Bold.woff");
@@ -63,9 +63,9 @@ table {
 }
 
 @font-face {
-  font-family: "Marat";
+  font-family: "MaratWeb";
   src: url("../fnt/MaratWeb-Light.woff");
-  font-weight: lighter;
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -81,7 +81,26 @@ body {
   font-family: 'BrentaWeb', serif;
   color: white;
   background-color: #0b3d91;
+  overflow: hidden;
 }
+
+body {
+  background: linear-gradient(183deg, rgba(252,61,33,0.5) 1%, rgba(252,61,33,0) 60%), 
+              linear-gradient(250deg, rgba(252,61,33,0) 10%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              /*linear-gradient(250deg, rgba(252,61,33,0) 23%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),
+              linear-gradient(250deg, rgba(252,61,33,0) 25%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),*/
+              repeating-linear-gradient(179deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px);;
+ 
+  background-color: #0b3d91;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+::selection {
+    color: #ff1493;
+    background: #9932cc;
+}
+
 
 img {
   height: 12em;
@@ -89,10 +108,10 @@ img {
 }
 
 .teaser {
-  font-family: 'BrentaWeb', serif;
-  font-weight: lighter;
-  font-size: 2em;
-  line-height: 1.2em;
+  font-family: 'MaratWeb', serif;
+  font-weight: normal;
+  font-size: 1.8em;
+  line-height: 1.4em;
 }
 
 #universe {
