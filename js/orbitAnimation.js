@@ -1,3 +1,8 @@
+const SimplexNoise = require('simplex-noise');
+
+// initializing a simplex instance
+// do this only once it's relatively expensive
+var simplex = new SimplexNoise();
 
 //var speed = -0.005;
 var theta = 0;
@@ -21,7 +26,10 @@ var SPEED_MODIFIER_INC= 0.04; //higher = more speed
 var DEBUG_VIEW = true;
 var ELLIPSE_WIDTH_DEFAULT = 0.8;
 var ELLIPSE_PROPORTION = 0.4;
+var BROWNIAN_MODIFIER = 0.00001;
+
 var satellites = {};
+var words = {};
 
 var options = [
 	// {
@@ -42,7 +50,7 @@ var options = [
 	},
 	{
 		id: "navitem--sub--2",
-		duration: 1000, //in seconds
+		duration: 30, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.3,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
@@ -104,21 +112,21 @@ function init() {
 		}
 	});
 
-	options.forEach(function(option) {
-		var satellite = document.getElementById(option.id);
+	options.forEach(function(opt) {
+		var satellite = document.getElementById(opt.id);
 		if (!satellite) {
 			return;
 		}
-		satellites[option.id] = satellite;
+		satellites[opt.id] = satellite;
 
-		option.originCenter = option.originCenter || [0.5, 0.5];
-		option.originSelector = option.originSelector || ".sun";
-		option.ellipseProportion = option.ellipseProportion || ELLIPSE_PROPORTION;
+		opt.originCenter = opt.originCenter || [0.5, 0.5];
+		opt.originSelector = opt.originSelector || ".sun";
+		opt.ellipseProportion = opt.ellipseProportion || ELLIPSE_PROPORTION;
 
 		var satBoundingRect = satellite.getBoundingClientRect();
 
 		var container = satellite.parentNode;
-		var center = getCenter(satellite, option);
+		var center = getCenter(satellite, opt);
 		//var containerSize = getParentSize(satellite);
 
 		//var startX = satBoundingRect.left + satBoundingRect.width * 0.5;
@@ -130,7 +138,7 @@ function init() {
 		var dx = startX - center.x;
 		var dy = startY - center.y;
 
-		var startAngle = Math.atan2(dy / option.ellipseProportion, dx);
+		var startAngle = Math.atan2(dy / opt.ellipseProportion, dx);
 		var radiusB = Math.abs(dy / Math.sin(startAngle));
 		var radiusA = Math.abs(dx / Math.cos(startAngle));
 		console.log(dx, dy);
@@ -139,15 +147,34 @@ function init() {
 
 		//var radiusA = containerSize.width * 0.5 * ellipseWidthFactor;
 		//var radiusB = radiusA * ellipseProportion;
-		var angularSpeed = TWO_PI / option.duration / 1000.0;
+		var angularSpeed = TWO_PI / opt.duration / 1000.0;
 
 		//option.startAngle = startAngle % TWO_PI;
-		option.radiusA = radiusA;
-		option.radiusB = radiusB;
-		option.angularSpeed = angularSpeed;
-		option.startAngle = startAngle;
-		option.currentAngle = option.startAngle;
-		option.center = center;
+		opt.radiusA = radiusA;
+		opt.radiusB = radiusB;
+		opt.angularSpeed = angularSpeed;
+		opt.startAngle = startAngle;
+		opt.currentAngle = opt.startAngle;
+		opt.center = center;
+
+		var text = satellite.textContent;
+		satellite.textContent = "";
+		words[opt.id] = [];
+		text.split(" ").forEach(function(word) {
+			if (word !== "") {
+				var wordSpan = document.createElement("span");
+				wordSpan.textContent = word + String.fromCharCode(0x00A0);
+				satellite.appendChild(wordSpan);
+				/*
+				wordSpan.props = {
+					dx: (Math.random() - 0.5)*2.0,
+					dy: (Math.random() - 0.5)*2.0,
+					dz: (Math.random() - 0.5)*2.0
+				};
+				*/
+				words[opt.id].push(wordSpan);
+			}
+		});
 
 		if (DEBUG_VIEW) {
 
@@ -186,6 +213,7 @@ function init() {
 		}
 	});
 	console.log(options);
+
 	window.requestAnimationFrame(animateOrbits);
 }
 
@@ -211,7 +239,6 @@ function animateOrbits(timestamp) {
 	RADIUS_MODIFIER = Math.min(RADIUS_MODIFIER, RADIUS_MODIFIER_MAX);
 	SPEED_MODIFIER = Math.max(SPEED_MODIFIER, SPEED_MODIFIER_MIN);
 	SPEED_MODIFIER = Math.min(SPEED_MODIFIER, SPEED_MODIFIER_MAX);
-
 
 	options.forEach(function(opt) {
 		//var element = document.getElementById(opt.id);
@@ -263,7 +290,7 @@ function animateOrbits(timestamp) {
 					//opt.currentAngle = opt.currentAngle % TWO_PI;
 					opt.currentAngle = (opt.currentAngle + TWO_PI) % TWO_PI;
 				}
-				console.log(deltaTime);
+				// console.log(deltaTime);
 			break;
 		}
 		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * easedRadiusMod();
@@ -272,10 +299,26 @@ function animateOrbits(timestamp) {
 		var offsets = element.getBoundingClientRect();
 		// element.style.left = (x - offsets.width * 0.5) + 'px';
 		// element.style.top = (y - offsets.height * 0.5) + 'px';
+
 		element.style.left = x + 'px';
 		element.style.top = y + 'px';
 		element.style.zIndex = Math.floor(Math.sin(opt.currentAngle) * 100);
+
+		//var delta = Math.abs(opt.currentAngle - opt.startAngle) / TWO_PI * 200;
+		//var delta = (1.0 - Math.abs(Math.cos((opt.currentAngle - opt.startAngle)*0.5))) * 200;
+		var delta = 200;
+		words[opt.id].forEach(function(word,i) {
+				//console.log(span.props);
+				var x = (simplex.noise3D(i, 0, timestamp * BROWNIAN_MODIFIER) - 0.5) * 2;
+				var y = (simplex.noise3D(i, 1, timestamp * BROWNIAN_MODIFIER) - 0.5) * 2;
+				var z = (simplex.noise3D(i, 2, timestamp * BROWNIAN_MODIFIER) - 0.5) * 2;
+				// console.log(x,y,z);
+				word.style.transform = "translate3d("  + (x * delta) + "px, " + (y * delta) + "px, " + (z * delta) + "px)";
+				//console.log(x,y,z);
+		});
+
 	});
+
 
 	//console.log(timestamp, HOMECOMING_START + HOMECOMING_DURATION);
 	if (STATE === "HOMECOMING" && timestamp >= HOMECOMING_START + HOMECOMING_DURATION) {

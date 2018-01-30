@@ -22,6 +22,7 @@
     "cheerio": "^1.0.0-rc.2",
     "popmotion": "^8.1.9",
     "request": "^2.83.0",
+    "simplex-noise": "^2.3.0",
     "watchify": "^3.9.0"
   }
 }
