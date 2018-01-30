@@ -43,6 +43,7 @@ table {
 
 
 
+
 @font-face {
   font-family: "AdisKomet";
   src: url("../fnt/Komet-Bold.woff");
@@ -73,7 +74,7 @@ body {
 
   background: linear-gradient(183deg, rgba(252,61,33,0.5) 1%, rgba(252,61,33,0) 60%), 
               linear-gradient(250deg, rgba(252,61,33,0) 10%, rgba(252,61,33,0.2) 20%, rgba(11,35,47,0.2) 50%),
-              repeating-linear-gradient( 180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px ); 
+              repeating-linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px ); 
 
   background-color: #0b3d91;
   background-repeat: no-repeat;
@@ -83,6 +84,18 @@ body {
 img {
   height: 12em;
   opacity: 0.5;
+}
+
+a { 
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+  box-shadow: inset 0 -0.06em 0 rgba(252,61,33,0.8); /* #fc3d21 */
+}
+
+a:hover {
+  /*background: black;*/
+  color: #fc3d21;
 }
 
 .teaser {
