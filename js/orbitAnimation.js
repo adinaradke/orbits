@@ -41,16 +41,43 @@ var options = [
 	// },
 	{
 		id: "navitem--sub--1",
-		duration: 10, //in seconds
+		duration: 90, //in seconds
 		//ellipseWidthFactor: 0.75, //deprecated
-		ellipseProportion: 0.3,
+		ellipseProportion: 0.1,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
 		originSelector: ".sun", //defaults to ".sun"
 		//startAngle: 20 //in degrees! [0°, 360°] //deprecated
 	},
 	{
 		id: "navitem--sub--2",
-		duration: 30, //in seconds
+		duration: 120, //in seconds
+		//ellipseWidthFactor: 0.85, //deprecated
+		ellipseProportion: 0.005,
+		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originSelector: ".sun", //defaults to ".sun"
+		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
+	},
+	{
+		id: "navitem--sub--3",
+		duration: 150, //in seconds
+		//ellipseWidthFactor: 0.85, //deprecated
+		ellipseProportion: 0.3,
+		originCenter: [0.1, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originSelector: ".sun", //defaults to ".sun"
+		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
+	},
+	{
+		id: "navitem--sub--4",
+		duration: 180, //in seconds
+		//ellipseWidthFactor: 0.85, //deprecated
+		ellipseProportion: 0.3,
+		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originSelector: ".sun", //defaults to ".sun"
+		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
+	},
+	{
+		id: "navitem--sub--5",
+		duration: 210, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.3,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
