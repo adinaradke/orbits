@@ -92,7 +92,6 @@ img.article {
   filter: hue-rotate(180deg);
 }
 
-<<<<<<< HEAD
 .logo {
   margin: 1em 0 0 1em;
 }
@@ -100,21 +99,6 @@ img.article {
 img.logo {
   height: 9em;
 }
-
-/*.pos-leftVert {
-  bottom:0;
-  left:3vh;
-  position:inherit;
-  text-align:center;
-  -webkit-transform:rotate(-90deg);
-  transform:rotate(-90deg);
-  -webkit-transform-origin:0 0;
-  transform-origin:0 0;
-  letter-spacing: 0.9px;
-  line-height: 1.8vw;
-  color: #C81E1E;
-  width:100vh
-}*/
 
 a {
   text-decoration: none;
@@ -156,30 +140,41 @@ a:hover {
   height: 60vh;
 }
 
-/*#satelliteTest, #satelliteTest-dummy {
-  width: 100px;
-  height: 50px;
-  background-color: rgba(255, 255, 0, 0.3);
-  position: fixed;
-}*/
-
 #navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.6em;
   position: fixed;
   width: 18em; 
+  margin: 2em 2em 0 2em;
+}
+
+#navitem--sub--1 {
+  top: 20%;
+  left: 50%;
 }
 
 #navitem--sub--2 {
-  top: 25%;
-  left: 50%;
+  top: 67%;
+  left: 0%;
 }
-/*#navitem--sub--2 {
-  left: 10%;
-  top: 40%;
-  background-color: rgba(255,0,0,0.5);
-}*/
+
+#navitem--sub--3 {
+  top: 15%;
+  left: 0%;
+}
+
+#navitem--sub--4 {
+  top: 67%;
+  left: 42%;
+  width: 27%;
+}
+
+#navitem--sub--5 {
+  top: 67%;
+  left: 73%;
+  width: 27%;
+}
 
 svg {
   width: 100vw;
@@ -187,7 +182,7 @@ svg {
   position: fixed;
   top: 0px;
   left:0px;
-  background-color:  none;
+  background-color: none;
 }
 
 .sun {
@@ -202,7 +197,7 @@ svg {
 
   margin: 0 auto;
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: calc(50% - 3.2em);
   margin-right: -50%;
   transform: translate(-50%, -50%)
