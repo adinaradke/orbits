@@ -52,7 +52,7 @@ var options = [
 	},
 	{
 		id: "navitem--sub--2",
-		duration: 60, //in seconds
+		duration: 20, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.1,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
@@ -179,6 +179,8 @@ function init() {
 		var angularSpeed = TWO_PI / opt.duration / 1000.0;
 
 		//option.startAngle = startAngle % TWO_PI;
+		opt.x0 = startX;
+		opt.y0 = startY;
 		opt.radiusA = radiusA;
 		opt.radiusB = radiusB;
 		opt.angularSpeed = angularSpeed;
@@ -192,9 +194,12 @@ function init() {
 
 		var text = satellite.textContent;
 		satellite.textContent = "";
+		console.log(text);
 		words[opt.id] = [];
-		text.split(" ").forEach(function(word) {
-			if (word !== "") {
+		text = text.trim();
+		console.log(text);
+		text.trim().split(" ").forEach(function(word) {
+			if (word.split('').length > 0) {
 				var wordSpan = document.createElement("span");
 				wordSpan.textContent = word + String.fromCharCode(0x00A0);
 				satellite.appendChild(wordSpan);
@@ -247,7 +252,7 @@ function init() {
 	});
 	console.log(options);
 
-	//window.requestAnimationFrame(animateOrbits);
+	window.requestAnimationFrame(animateOrbits);
 }
 
 function animateOrbits(timestamp) {
@@ -326,8 +331,8 @@ function animateOrbits(timestamp) {
 				// console.log(deltaTime);
 			break;
 		}
-		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * easedRadiusMod();
-		var y = center.y + Math.sin(opt.currentAngle) * opt.radiusB * easedRadiusMod();
+		var x = center.x + Math.cos(opt.currentAngle) * opt.radiusA * easedRadiusMod() - opt.x0;
+		var y = center.y + Math.sin(opt.currentAngle) * opt.radiusB * easedRadiusMod() - opt.y0;
 
 		var offsets = element.getBoundingClientRect();
 		// element.style.left = (x - offsets.width * 0.5) + 'px';
