@@ -32,62 +32,6 @@ var DELTA_Z = 100; //defines max and min z
 
 var satellites = {};
 var words = {};
-/*
-var options = [
-	// {
-	// 	id: "satelliteTest",
-	// 	duration: "30", //in seconds
-	// 	ellipseWidthFactor: 0.8,
-	// 	ellipseProportion: ELLIPSE_PROPORTION,
-	// 	startAngle: 270 //in degrees! [0°, 360°]
-	// },
-	{
-		id: "navitem--sub--1",
-		duration: 90, //in seconds
-		//ellipseWidthFactor: 0.75, //deprecated
-		ellipseProportion: 0.1,
-		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
-		originSelector: ".sun", //defaults to ".sun"
-		//startAngle: 20 //in degrees! [0°, 360°] //deprecated
-	},
-	{
-		id: "navitem--sub--2",
-		duration: 20, //in seconds
-		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.1,
-		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
-		originSelector: ".sun", //defaults to ".sun"
-		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
-	},
-	{
-		id: "navitem--sub--3",
-		duration: 30, //in seconds
-		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.3,
-		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
-		originSelector: ".sun", //defaults to ".sun"
-		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
-	},
-	{
-		id: "navitem--sub--4",
-		duration: 180, //in seconds
-		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.3,
-		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
-		originSelector: ".sun", //defaults to ".sun"
-		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
-	},
-	{
-		id: "navitem--sub--5",
-		duration: 120, //in seconds
-		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.8,
-		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
-		originSelector: ".sun", //defaults to ".sun"
-		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
-	}
-]
-*/
 
 function getParentCenter(theChild) {
 	var parentBoundingRect = theChild.parentNode.getBoundingClientRect();
@@ -193,27 +137,30 @@ function init(options) {
 		//satellite.style.left = 0;
 		satellite.style.perspective =  `${PERSPECTIVE}px`;
 
-		var text = satellite.textContent;
-		satellite.textContent = "";
-		console.log(text);
-		words[opt.id] = [];
-		text = text.trim();
-		console.log(text);
-		text.trim().split(" ").forEach(function(word) {
-			if (word.split('').length > 0) {
-				var wordSpan = document.createElement("span");
-				wordSpan.textContent = word + String.fromCharCode(0x00A0);
-				satellite.appendChild(wordSpan);
-				/*
-				wordSpan.props = {
-					dx: (Math.random() - 0.5)*2.0,
-					dy: (Math.random() - 0.5)*2.0,
-					dz: (Math.random() - 0.5)*2.0
-				};
-				*/
-				words[opt.id].push(wordSpan);
-			}
-		});
+		var satChild = satellite.children[0];
+		if (satChild.tagName !== "img") {
+			var text = satChild.textContent;
+			satChild.textContent = "";
+			console.log(text);
+			words[opt.id] = [];
+			text = text.trim();
+			console.log(text);
+			text.trim().split(" ").forEach(function(word) {
+				if (word.split('').length > 0) {
+					var wordSpan = document.createElement("span");
+					wordSpan.textContent = word + String.fromCharCode(0x00A0);
+					satChild.appendChild(wordSpan);
+					/*
+					wordSpan.props = {
+						dx: (Math.random() - 0.5)*2.0,
+						dy: (Math.random() - 0.5)*2.0,
+						dz: (Math.random() - 0.5)*2.0
+					};
+					*/
+					words[opt.id].push(wordSpan);
+				}
+			});
+		}
 
 		if (DEBUG_VIEW) {
 
