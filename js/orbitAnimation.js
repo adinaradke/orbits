@@ -18,13 +18,13 @@ var TWO_PI = Math.PI * 2;
 var RADIUS_MODIFIER = 1;
 var RADIUS_MODIFIER_MIN = 1;
 var RADIUS_MODIFIER_MAX = 4; //higher = end state
-var RADIUS_MODIFIER_INC= 0.005; //higher = more speed
+var RADIUS_MODIFIER_INC= 0.001; //higher = more speed
 var SPEED_MODIFIER = 1;
 var SPEED_MODIFIER_MIN = 1;
 var SPEED_MODIFIER_MAX = 5; //higher = end state
-var SPEED_MODIFIER_INC= 0.04; //higher = more speed
+var SPEED_MODIFIER_INC= 0.004; //higher = more speed
 var DEBUG_VIEW = true;
-var ELLIPSE_WIDTH_DEFAULT = 0.8;
+var ELLIPSE_WIDTH_DEFAULT = 0.6;
 var ELLIPSE_PROPORTION = 0.4;
 var BROWNIAN_MODIFIER = 0.00001;
 var PERSPECTIVE = 1000; //the lower, the more dramatic
@@ -52,19 +52,19 @@ var options = [
 	},
 	{
 		id: "navitem--sub--2",
-		duration: 120, //in seconds
+		duration: 60, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.005,
+		ellipseProportion: 0.1,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
 		originSelector: ".sun", //defaults to ".sun"
 		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
 	},
 	{
 		id: "navitem--sub--3",
-		duration: 150, //in seconds
+		duration: 30, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
 		ellipseProportion: 0.3,
-		originCenter: [0.1, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
 		originSelector: ".sun", //defaults to ".sun"
 		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
 	},
@@ -79,9 +79,9 @@ var options = [
 	},
 	{
 		id: "navitem--sub--5",
-		duration: 210, //in seconds
+		duration: 120, //in seconds
 		//ellipseWidthFactor: 0.85, //deprecated
-		ellipseProportion: 0.3,
+		ellipseProportion: 0.8,
 		originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
 		originSelector: ".sun", //defaults to ".sun"
 		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
@@ -186,8 +186,8 @@ function init() {
 		opt.currentAngle = opt.startAngle;
 		opt.center = center;
 
-		satellite.style.top = 0;
-		satellite.style.left = 0;
+		//satellite.style.top = 0;
+		//satellite.style.left = 0;
 		satellite.style.perspective =  `${PERSPECTIVE}px`;
 
 		var text = satellite.textContent;
@@ -247,7 +247,7 @@ function init() {
 	});
 	console.log(options);
 
-	window.requestAnimationFrame(animateOrbits);
+	//window.requestAnimationFrame(animateOrbits);
 }
 
 function animateOrbits(timestamp) {
@@ -341,8 +341,9 @@ function animateOrbits(timestamp) {
 		element.style.zIndex = Math.floor(Math.sin(opt.currentAngle) * 100);
 
 		//var delta = Math.abs(opt.currentAngle - opt.startAngle) / TWO_PI * 200;
-		//var delta = (1.0 - Math.abs(Math.cos((opt.currentAngle - opt.startAngle)*0.5))) * 200;
-		var delta = 200;
+		var delta = (1.0 - Math.abs(Math.cos((opt.currentAngle - opt.startAngle)*0.5))) * 200;
+		delta = 0;
+		//var delta = 200;
 		words[opt.id].forEach(function(word,i) {
 				//console.log(span.props);
 				var x = (simplex.noise3D(i, 0, timestamp * BROWNIAN_MODIFIER) - 0.5) * 2;
