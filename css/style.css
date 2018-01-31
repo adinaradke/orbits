@@ -63,7 +63,7 @@ span {
 
 @font-face {
   font-family: "AdisMarat";
-  src: url("../fnt/MaratWeb-Light.woff");
+  src: url("../fnt/MaratWeb-Regular.woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +73,13 @@ body {
   /* perspective: 200px; */
   font-size: 1em;
   font-family: 'AdisMarat', serif;
-  color: white;
+  -ms-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  color: #fff;
+  opacity: 0.9;
   overflow: hidden;
 
   background: linear-gradient(183deg, rgba(252,61,33,0.5) 1%, rgba(252,61,33,0) 60%),
@@ -86,18 +92,18 @@ body {
 }
 
 img.article {
-  height: 12em;
+  /*height: 12em;*/
   opacity: 0.5;
   /*filter: invert(100%);*/
   filter: hue-rotate(180deg);
 }
 
 .logo {
-  margin: 1em 0 0 1em;
+  margin: 0 0 0 1em;
 }
 
 img.logo {
-  height: 9em;
+  height: 6em;
 }
 
 a {
@@ -112,13 +118,13 @@ a:hover {
   color: #fc3d21;
 }
 
-.teaser {
+/*.teaser {
   font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.8em;
   line-height: 1.4em;
   width: 15em;
-}
+}*/
 
 #universe {
   z-index: 1;
@@ -133,47 +139,60 @@ a:hover {
   position: relative;
 }
 
-.solarsystem {
-  z-index: 4;
-  position: relative;
-  width: 60vw;
-  height: 60vh;
-}
 
 #navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
-  font-weight: normal;
+  /*font-weight: normal;
   font-size: 1.2em;
-  line-height: 1.6em;
+  line-height: 1.6em;*/
   position: fixed;
-  width: 18em; 
-  margin: 2em 2em 0 2em;
+  margin: 0 2em 0 2em;
+  padding: none;
 }
 
 #navitem--sub--1 {
-  top: 20%;
-  left: 50%;
+  top: 24vh;
+  left: 41.5vw;
+  font-family: 'AdisMarat', serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.8em;
 }
 
 #navitem--sub--2 {
-  top: 67%;
-  left: 0%;
+  top: 72vh;
+  left: 0vw;
+  font-family: 'AdisMarat', serif;
+  font-weight: normal;
+  font-size: 1.7em;
+  line-height: 1.6em;
+  width: 38vw;
 }
 
 #navitem--sub--3 {
-  top: 15%;
-  left: 0%;
+  top: 18vh;
+  left: 1vw;
 }
 
 #navitem--sub--4 {
-  top: 67%;
-  left: 42%;
-  width: 27%;
+  top: 72vh;
+  left: 42vw;
+  width: 25vw;
+  font-family: 'AdisMarat', serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  margin-top: 0.35em;
 }
 
 #navitem--sub--5 {
-  top: 67%;
-  left: 73%;
-  width: 27%;
+  top: 72vh;
+  left: 71vw;
+  width: 25vw;
+  font-family: 'AdisMarat', serif;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  margin-top: 0.35em;
 }
 
 svg {
@@ -186,7 +205,7 @@ svg {
 }
 
 .sun {
-  width: 6em;
+  width: 56vw;
   font-size: 2.7em;
   line-height: 1.5em;
   font-family: 'AdisKomet', sans-serif;
@@ -195,12 +214,12 @@ svg {
   text-transform: uppercase;
   letter-spacing: 0.3em;
 
-  margin: 0 auto;
+  margin: 0 0 0 1em;
   position: absolute;
-  top: 25%;
-  left: calc(50% - 3.2em);
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
+  top: 18vh;
+  left: 41vw/*calc(50% - 3.2em)*/;
+  /*margin-right: -50%;*/
+  /*transform: translate(-50%, -50%)*/ 
 }
 
 iframe {
