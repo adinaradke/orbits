@@ -11,22 +11,17 @@
   <!-- Do not edit the normalize.css file. More info: https://github.com/necolas/normalize.css/ -->
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/layout1.css" rel="stylesheet">
+
   <script src="dist/bundle.js"></script>
 
   <script type="text/javascript" defer>
     var options = [
-      // {
-      //  id: "satelliteTest",
-      //  duration: "30", //in seconds
-      //  ellipseWidthFactor: 0.8,
-      //  ellipseProportion: ELLIPSE_PROPORTION,
-      //  startAngle: 270 //in degrees! [0°, 360°]
-      // },
       {
         id: "navitem--sub--1",
         duration: 210, //in seconds
         ellipseProportion: 0.5,
-        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originCenter: [0.5, 0], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
       },
       {
@@ -35,7 +30,6 @@
         ellipseProportion: 0.43,
         originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
-        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
       },
       {
         id: "navitem--sub--3",
@@ -55,7 +49,7 @@
       {
         id: "navitem--sub--5",
         duration: 150, //in seconds
-        ellipseProportion: 0.8,
+        ellipseProportion: 0.6,
         originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
       }
@@ -95,7 +89,7 @@
       
       <div id="navitem--sub--4" class="satellite">
         <p>
-          That’s the latest theory coming from NASA’s New Horizons team, as it continues to analyze telescope data on the target of a New Year’s Day 2019 flyby. “We really won’t know what MU69 looks like until we fly past it, or even gain a full understanding of it until after the encounter,” said New Horizons science team member Marc Buie, of the Southwest Research Institute, Boulder, Colorado, who offered an update on the analysis of MU69 Monday at the American Geophysical Union Fall Meeting in New Orleans. “But even from afar, the more we examine it, the more interesting and amazing this little world becomes.”
+          That’s the latest theory coming from NASA’s New Horizons team, as it continues to analyze telescope data on the target of a New Year’s Day 2019 flyby. »We really won’t know what MU69 looks like until we fly past it, or even gain a full understanding of it until after the encounter,« said New Horizons science team member Marc Buie, of the Southwest Research Institute, Boulder, Colorado, who offered an update on the analysis of MU69 Monday at the American Geophysical Union Fall Meeting in New Orleans. »But even from afar, the more we examine it, the more interesting and amazing this little world becomes.«
         </p>
       </div>
       
@@ -108,8 +102,7 @@
     </div>
   </div>
 
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<!--   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </body>

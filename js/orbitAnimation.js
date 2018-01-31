@@ -181,6 +181,7 @@ function init(options) {
 			ellipse.setAttributeNS(null,"stroke-width", 0.5);
 			ellipse.setAttributeNS(null,"fill", "none");
 
+			// Ellipsen aus- bzw einblenden
 			svgElement.appendChild(ellipse);
 
 			var cross = document.createElementNS(xmlns, "path");
@@ -194,6 +195,8 @@ function init(options) {
 			cross.setAttributeNS(null,"stroke-width", 1);
 			cross.setAttributeNS(null,"fill", "none");
 			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
+			
+			// Kreuze aus- bzw einblenden
 			svgElement.appendChild(cross);
 
 		}
@@ -295,7 +298,7 @@ function animateOrbits(timestamp) {
 
 		//var delta = Math.abs(opt.currentAngle - opt.startAngle) / TWO_PI * 200;
 		var delta = (1.0 - Math.abs(Math.cos((opt.currentAngle - opt.startAngle)*0.5))) * 200;
-		delta = 0;
+		//delta = 0;
 		//var delta = 200;
 		words[opt.id].forEach(function(word,i) {
 				//console.log(span.props);
