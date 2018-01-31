@@ -14,14 +14,74 @@
   <!-- <script src="js/orbitAnimation.js"></script> -->
   <!-- <script src="js/articleGrabber.js"></script> -->
   <script src="dist/bundle.js"></script>
+  <script type="text/javascript" defer>
+    var options = [
+      // {
+      // 	id: "satelliteTest",
+      // 	duration: "30", //in seconds
+      // 	ellipseWidthFactor: 0.8,
+      // 	ellipseProportion: ELLIPSE_PROPORTION,
+      // 	startAngle: 270 //in degrees! [0°, 360°]
+      // },
+      {
+        id: "navitem--sub--1",
+        duration: 90, //in seconds
+        //ellipseWidthFactor: 0.75, //deprecated
+        ellipseProportion: 0.1,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 20 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--2",
+        duration: 20, //in seconds
+        //ellipseWidthFactor: 0.85, //deprecated
+        ellipseProportion: 0.1,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--3",
+        duration: 30, //in seconds
+        //ellipseWidthFactor: 0.85, //deprecated
+        ellipseProportion: 0.3,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--4",
+        duration: 180, //in seconds
+        //ellipseWidthFactor: 0.85, //deprecated
+        ellipseProportion: 0.3,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--5",
+        duration: 120, //in seconds
+        //ellipseWidthFactor: 0.85, //deprecated
+        ellipseProportion: 0.8,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      }
+    ]
+    window.addEventListener('load', function() {
+      orbitAnimator(options);
+      //console.log(options);
+    });
 
+  </script>
 </head>
 
 <body>
-  
+
   <div class="logo">
       <img class="logo" src="img/nasa-meatball-logo.svg">
-  </div>  
+  </div>
 
   <div id="universe">
     <div class="galaxy">
