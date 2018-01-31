@@ -27,6 +27,8 @@ var DEBUG_VIEW = true;
 var ELLIPSE_WIDTH_DEFAULT = 0.8;
 var ELLIPSE_PROPORTION = 0.4;
 var BROWNIAN_MODIFIER = 0.00001;
+var PERSPECTIVE = 1000; //the lower, the more dramatic
+var DELTA_Z = 100; //defines max and min z
 
 var satellites = {};
 var words = {};
@@ -184,6 +186,10 @@ function init() {
 		opt.currentAngle = opt.startAngle;
 		opt.center = center;
 
+		satellite.style.top = 0;
+		satellite.style.left = 0;
+		satellite.style.perspective =  `${PERSPECTIVE}px`;
+
 		var text = satellite.textContent;
 		satellite.textContent = "";
 		words[opt.id] = [];
@@ -327,8 +333,11 @@ function animateOrbits(timestamp) {
 		// element.style.left = (x - offsets.width * 0.5) + 'px';
 		// element.style.top = (y - offsets.height * 0.5) + 'px';
 
-		element.style.left = x + 'px';
-		element.style.top = y + 'px';
+		//element.style.left = x + 'px';
+		//element.style.top = y + 'px';
+		var z = Math.sin(opt.currentAngle) * DELTA_Z;
+		//z = 0;
+		element.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
 		element.style.zIndex = Math.floor(Math.sin(opt.currentAngle) * 100);
 
 		//var delta = Math.abs(opt.currentAngle - opt.startAngle) / TWO_PI * 200;
