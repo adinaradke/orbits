@@ -32,7 +32,7 @@ var DELTA_Z = 100; //defines max and min z
 
 var satellites = {};
 var words = {};
-
+/*
 var options = [
 	// {
 	// 	id: "satelliteTest",
@@ -87,6 +87,7 @@ var options = [
 		//startAngle: 270 //in degrees! [0°, 360°] //deprecated
 	}
 ]
+*/
 
 function getParentCenter(theChild) {
 	var parentBoundingRect = theChild.parentNode.getBoundingClientRect();
@@ -125,7 +126,7 @@ function constrainAngle(angle) {
 	return angle;
 }
 */
-function init() {
+function init(options) {
 
 	window.addEventListener('keydown', function(e) {
 		//e.preventDefault();
