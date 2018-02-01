@@ -1,9 +1,5 @@
-#universe {
-  z-index: 1;
-}
-
 .sun {
-  width: 56vw;
+  width: 36vw;
   font-size: 2.7em;
   line-height: 1.5em;
   font-family: 'AdisKomet', sans-serif;
@@ -14,8 +10,8 @@
 
   margin: 0 0 0 1em;
   position: absolute;
-  top: 25vh;
-  left: 41vw/*calc(50% - 3.2em)*/;
+  top: 15vh;
+  left: 18vw/*calc(50% - 3.2em)*/;
   /*margin-right: -50%;*/
   /*transform: translate(-50%, -50%)*/ 
 }
@@ -26,48 +22,42 @@
   padding: none;
 }
 
+/*date styling*/
 #navitem--sub--1 {
-  top: 18vh;
-  left: 41.5vw;
+  top: 18.5vh;
+  left: 68vw;
   font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.8em;
+  width: 20.5vw;
+  text-align: right;
 }
 
+/*teaser styling*/
 #navitem--sub--2 {
-  top: 72vh;
-  left: 0vw;
+  top: 87vh;
+  left: 18.5vw;
   font-family: 'AdisMarat', serif;
   font-weight: normal;
-  font-size: 1.7em;
-  line-height: 1.6em;
-  width: 38vw;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  width: 33vw;
 }
 
+/*image styling*/
 #navitem--sub--3 {
-  top: 16vh;
-  left: 1vw;
+  top: 24vh;
+  left: 35vw;
 }
 
+/*text styling*/
 #navitem--sub--4 {
-  top: 72vh;
-  left: 42vw;
-  width: 25vw;
+  top: 87vh;
+  left: 54vw;
+  width: 34vw;
   font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.8em;
-  margin-top: 0.35em;
-}
-
-#navitem--sub--5 {
-  top: 72vh;
-  left: 71vw;
-  width: 25vw;
-  font-family: 'AdisMarat', serif;
-  font-weight: normal;
-  font-size: 1.2em;
-  line-height: 1.8em;
-  margin-top: 0.35em;
 }

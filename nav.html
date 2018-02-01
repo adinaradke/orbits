@@ -11,130 +11,217 @@
   <!-- Do not edit the normalize.css file. More info: https://github.com/necolas/normalize.css/ -->
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <!-- <script src="js/orbitAnimation.js"></script> -->
-  <!-- <script src="js/articleGrabber.js"></script> -->
+  <link href="css/navlayout.css" rel="stylesheet">
+
   <script src="dist/bundle.js"></script>
+  
   <script type="text/javascript" defer>
     var options = [
-      // {
-      // 	id: "satelliteTest",
-      // 	duration: "30", //in seconds
-      // 	ellipseWidthFactor: 0.8,
-      // 	ellipseProportion: ELLIPSE_PROPORTION,
-      // 	startAngle: 270 //in degrees! [0°, 360°]
-      // },
       {
         id: "navitem--sub--1",
-        duration: 90, //in seconds
-        //ellipseWidthFactor: 0.75, //deprecated
-        ellipseProportion: 0.1,
-        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        duration: 210, //in seconds
+        ellipseProportion: 0.5,
+        originCenter: [0.5, 0], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
-        //startAngle: 20 //in degrees! [0°, 360°] //deprecated
       },
       {
         id: "navitem--sub--2",
-        duration: 20, //in seconds
-        //ellipseWidthFactor: 0.85, //deprecated
-        ellipseProportion: 0.1,
+        duration: 270, //in seconds
+        ellipseProportion: 0.43,
         originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
-        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
       },
       {
         id: "navitem--sub--3",
-        duration: 30, //in seconds
-        //ellipseWidthFactor: 0.85, //deprecated
-        ellipseProportion: 0.3,
-        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        duration: 180, //in seconds
+        ellipseProportion: 0.6,
+        originCenter: [0.3, 0.2], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
         //startAngle: 270 //in degrees! [0°, 360°] //deprecated
       },
       {
         id: "navitem--sub--4",
-        duration: 180, //in seconds
-        //ellipseWidthFactor: 0.85, //deprecated
+        duration: 240, //in seconds
         ellipseProportion: 0.3,
         originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--5",
+        duration: 150, //in seconds
+        ellipseProportion: 0.3,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--6",
+        duration: 300, //in seconds
+        ellipseProportion: 0.3,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--7",
+        duration: 270, //in seconds
+        ellipseProportion: 0.52,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--8",
+        duration: 240, //in seconds
+        ellipseProportion: 0.4,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--9",
+        duration: 150, //in seconds
+        ellipseProportion: 0.5,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--10",
+        duration: 300, //in seconds
+        ellipseProportion: 0.35,
+        originCenter: [0.5, 0.4], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--11",
+        duration: 270, //in seconds
+        ellipseProportion: 0.43,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--12",
+        duration: 180, //in seconds
+        ellipseProportion: 0.6,
+        originCenter: [0.3, 0.2], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
         //startAngle: 270 //in degrees! [0°, 360°] //deprecated
       },
       {
-        id: "navitem--sub--5",
-        duration: 120, //in seconds
-        //ellipseWidthFactor: 0.85, //deprecated
-        ellipseProportion: 0.8,
+        id: "navitem--sub--13",
+        duration: 240, //in seconds
+        ellipseProportion: 0.2,
         originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
         originSelector: ".sun", //defaults to ".sun"
-        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--14",
+        duration: 210, //in seconds
+        ellipseProportion: 0.4,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--15",
+        duration: 240, //in seconds
+        ellipseProportion: 0.3,
+        originCenter: [0.5, 0.4], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--16",
+        duration: 270, //in seconds
+        ellipseProportion: 0.5,
+        originCenter: [0.3, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--17",
+        duration: 180, //in seconds
+        ellipseProportion: 0.6,
+        originCenter: [0.5, 0.5], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
       }
     ]
     window.addEventListener('load', function() {
       orbitAnimator(options);
-      //console.log(options);
     });
 
   </script>
+
 </head>
 
 <body>
 
   <div class="logo">
-      <img class="logo" src="img/nasa-meatball-logo.svg">
+      <a href="/index.html"><img class="logo" src="img/nasa-meatball-logo.svg"></a>
+  </div>
+
+  <div id="universe" class="system1">
+    <div class="galaxy">
+      <h1 id="sun--1" class="sun">Missions</h1>
+      <div id="navitem--sub--1" class="nav--sun1--1" class="satellite">
+        <p>International Space Station</p>
+      </div>
+      <div id="navitem--sub--2" class="nav--sun1--2" class="satellite">
+        <p>Juno: Mission at Jupiter</p>
+      </div>
+      <div id="navitem--sub--3" class="nav--sun1--3" class="satellite">
+        <p>Hubble Space Telescope</p>
+      </div>
+      <div id="navitem--sub--4" class="nav--sun1--4" class="satellite">
+        <p>InSight Mars Lander</p>
+      </div>
+      <div id="navitem--sub--5" class="nav--sun1--5" class="satellite">
+        <p><a href="/article.html">New Horizons: Pluto & Beyond</a></p>
+      </div>
+      <div id="navitem--sub--6" class="nav--sun1--6" class="satellite">
+        <p>All Missions: A–Z</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="universe" class="system2">
+    <div class="galaxy">
+      <h1 id="sun--2" class="sun">Ab<br>—<br>out</h1>
+      <div id="navitem--sub--7" class="suntwo--1" class="satellite">
+        <p>Organization</p>
+      </div>
+      <div id="navitem--sub--8" class="suntwo--2" class="satellite">
+        <p><a href="/article.html">Leadership</a></p>
+      </div>
+      <div id="navitem--sub--9" class="suntwo--3" class="satellite">
+        <p>Locations</p>
+      </div>
+      <div id="navitem--sub--10" class="suntwo--4" class="satellite">
+        <p>Exhibits & Speakers</p>
+      </div>
+      <div id="navitem--sub--11" class="suntwo--5" class="satellite">
+        <p>Astronauts</p>
+      </div>
+      <div id="navitem--sub--12" class="suntwo--6" class="satellite">
+        <p>NASA People</div>
+      </div>
+      <div id="navitem--sub--13" class="suntwo--7" class="satellite">
+        <p>Careers</p>
+      </div>
+    </div>
   </div>
 
   <div id="universe">
     <div class="galaxy">
-      <h1 class="sun">Missions</h1>
-      <div id="navitem--sub--1" class="satellite">
-        <div class="subitem">International Space Station</div>
+      <h1 id="sun--3" class="sun">Gal<br>—<br>leries</h1>
+      <div id="navitem--sub--14" class="sunthree--1" class="satellite">
+        <p><a href="/potd.html">Image of the Day</a></p>
       </div>
-      <div id="navitem--sub--2" class="satellite">
-        <div class="subitem"><a href="/article.html">Juno: Mission at Jupiter</a></div>
+      <div id="navitem--sub--15" class="sunthree--2" class="satellite">
+        <p>Video Galleries</p>
       </div>
-      <div id="navitem--sub--3" class="satellite">
-        <div class="subitem">Hubble Space Telescope</div>
+      <div id="navitem--sub--16" class="sunthree--3" class="satellite">
+        <p>Image Galeries</div>
       </div>
-      <div id="navitem--sub--4" class="satellite">
-        <div class="subitem">InSight Mars Lander</div>
-      </div>
-      <div id="navitem--sub--5" class="satellite">
-        <div class="subitem">New Horizons: Pluto and Beyond</div>
+      <div id="navitem--sub--17" class="sunthree--4" class="satellite">
+        <p>Usage & Copyright</p>
       </div>
     </div>
   </div>
 
-  <div id="solarsystem">
-    <div class="galaxy">
-      <h1 class="sun--nav--1">About</h1>
-      <div id="nav--1" class="satellite">
-        <div class="subitem">Oranization</div>
-      </div>
-      <div id="nav--2" class="satellite">
-        <div class="subitem"><a href="/article.html">Leadership</a></div>
-      </div>
-      <div id="nav--3" class="satellite">
-        <div class="subitem">Locations</div>
-      </div>
-      <div id="nav--4" class="satellite">
-        <div class="subitem">Exhibits and Speakers</div>
-      </div>
-      <div id="nav--5" class="satellite">
-        <div class="subitem">Astronauts</div>
-      </div>
-      <div id="nav--6" class="satellite">
-        <div class="subitem">NASA people</div>
-      </div>
-      <div id="nav--7" class="satellite">
-        <div class="subitem">Careers</div>
-      </div>
-    </div>
-  </div>
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-<!--   <script src="solar.js"></script> -->
 </body>
 
 </html>

@@ -177,8 +177,8 @@ function init(options) {
 			ellipse.setAttributeNS(null,"cy",center.y);
 			ellipse.setAttributeNS(null,"rx",radiusA);
 			ellipse.setAttributeNS(null,"ry",radiusB);
-			ellipse.setAttributeNS(null,"stroke", "white");
-			ellipse.setAttributeNS(null,"stroke-width", 0.5);
+			ellipse.setAttributeNS(null,"stroke", "#fc3d21");
+			ellipse.setAttributeNS(null,"stroke-width", 0.6);
 			ellipse.setAttributeNS(null,"fill", "none");
 
 			// Ellipsen aus- bzw einblenden
@@ -197,7 +197,7 @@ function init(options) {
 			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
 			
 			// Kreuze aus- bzw einblenden
-			svgElement.appendChild(cross);
+			// svgElement.appendChild(cross);
 
 		}
 	});

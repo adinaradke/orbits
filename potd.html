@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <!-- The viewport meta tag is important for correct responsive behavior on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Exotic Ice Formations Found on Pluto · NASA</title>
+
+  <!-- Do not edit the normalize.css file. More info: https://github.com/necolas/normalize.css/ -->
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/potdlayout.css" rel="stylesheet">
+  
+  <script src="dist/bundle.js"></script>
+
+  <script type="text/javascript" defer>
+    var options = [
+      {
+        id: "navitem--sub--1",
+        duration: 210, //in seconds
+        ellipseProportion: 0.8,
+        originCenter: [0.5, 0.3], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      },
+      {
+        id: "navitem--sub--3",
+        duration: 120, //in seconds
+        ellipseProportion: 0.6,
+        originCenter: [0.3, 0.3], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+        //startAngle: 270 //in degrees! [0°, 360°] //deprecated
+      },
+      {
+        id: "navitem--sub--2",
+        duration: 150, //in seconds
+        ellipseProportion: 0.2,
+        originCenter: [0.5, 0.3], //proportionate to the bounding box, defaults to [0.5, 0.5]
+        originSelector: ".sun", //defaults to ".sun"
+      }
+    ]
+    window.addEventListener('load', function() {
+      orbitAnimator(options);
+    });
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="logo">
+      <a href="/index.html"><img class="logo" src="img/nasa-meatball-logo.svg"></a>
+  </div>
+
+  <div id="universe">
+    <div class="galaxy">
+      
+      <h1 class="sun">Exotic Ice Formations Found on Pluto</h1>
+
+      <div id="navitem--sub--1" class="satellite">
+        <p>May 5, 2017</p>
+      </div>
+      
+      <div id="navitem--sub--2" class="satellite">
+        <p>
+          NASA’s New Horizons mission revolutionized our knowledge of Pluto when it flew past that distant world in July 2015. Among its many discoveries were images of strange formations resembling giant blades of ice, whose origin had remained a mystery. Now, scientists have turned up a fascinating explanation for this ›bladed terrain‹: the structures are made almost entirely of methane ice, and likely formed as a specific kind of erosion wore away their surfaces, leaving dramatic crests and sharp divides.
+        </p>
+      </div>
+      
+      <div id="navitem--sub--3" class="satellite">
+        <img class="article" width="720px;" height="400" src="img/articles/tumblr_inline_ot3ma0zNek1tzhl5u_540.png">
+        <!-- https://www.youtube.com/watch?v=rSKQwwWehEs -->
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
