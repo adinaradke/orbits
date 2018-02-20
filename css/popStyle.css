@@ -1,0 +1,8 @@
+#sat {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  position: fixed;
+  left: 200px;
+  top: 200px;
+}
