@@ -14,7 +14,7 @@
   <link href="css/navlayout.css" rel="stylesheet">
 
   <script src="dist/bundle.js"></script>
-  
+
   <script type="text/javascript" defer>
     var options = [
       {
@@ -139,10 +139,44 @@
         originSelector: ".sun", //defaults to ".sun"
       }
     ]
+    /*
     window.addEventListener('load', function() {
       orbitAnimator(options);
     });
-
+    */
+    window.addEventListener('load', function() {
+      /*
+      clouds.addCloud(id);
+      clouds.setTargetDelta(id, 100, 5000);
+      window.setTimeout(function() {
+        clouds.setTargetDelta(id, 0, 5000);
+        console.log("set timeout");
+      }, 5000);
+      */
+      //das muss am Anfang einmal aufgerufen werden
+      //es startet automatisch eine Animation im Hintegrund
+      clouds.init();
+      //Beispiel-ID
+      var id = "navitem--sub--5";
+      //das dazugehörige HTML-Element
+      var el = document.getElementById(id);
+      //Anhand des IDs erzeugen wir einen neuen "Cloud"-Objekt
+      clouds.addCloud(id);
+      //wir fügen dem HTML-Element Logik hinzu
+      //bei "mouseenter" werden die Elemente stärker rumfliegen
+      //100 (delta) drückt den maximalen Abstand aus (entlang x,y und z, d.h. diese Werte summieren sich!)
+      //2000 (in Millisekunden) so lange dauert es, bis der maximale Abstand tatsächlich den gewünschten Wert erreicht
+      el.addEventListener("mouseenter", function() {
+        console.log("mouse enter", id);
+        window.clouds.setTargetDelta(id, 100, 2000);
+      });
+      //bei mouseleave …
+      //… wird die Bewegung stillgelegt, d.h. aus delta wird – innerhalb von 2000 Millisekunden – 0.
+      el.addEventListener("mouseleave", function() {
+        console.log("mouse leave", id);
+        window.clouds.setTargetDelta(id, 0, 2000);
+      });
+    });
   </script>
 
 </head>
