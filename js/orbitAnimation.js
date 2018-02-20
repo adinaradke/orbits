@@ -76,7 +76,8 @@ function init(options) {
 		//e.preventDefault();
 		console.log(e);
 		switch(e.key) {
-			case " ":
+			case "h":
+			case "H":
 				STATE = "HOMECOMING";
 			break;
 			case "g":
@@ -138,7 +139,7 @@ function init(options) {
 		satellite.style.perspective =  `${PERSPECTIVE}px`;
 
 		var satChild = satellite.children[0];
-		if (satChild.tagName !== "img") {
+		if (satChild.tagName !== "img" && satChild.tagName !== "a") {
 			var text = satChild.textContent;
 			satChild.textContent = "";
 			console.log(text);
@@ -182,19 +183,19 @@ function init(options) {
 			ellipse.setAttributeNS(null,"fill", "none");
 
 			// Ellipsen aus- bzw einblenden
-			svgElement.appendChild(ellipse);
+			// svgElement.appendChild(ellipse);
 
-			var cross = document.createElementNS(xmlns, "path");
-			var s = 20; //cross size in pixels
-			var x0 = center.x;
-			var y0 = center.y;
-			var x1 = center.x - s * 0.5;
-			var y1 = center.y - s * 0.5;
+			// var cross = document.createElementNS(xmlns, "path");
+			// var s = 20; //cross size in pixels
+			// var x0 = center.x;
+			// var y0 = center.y;
+			// var x1 = center.x - s * 0.5;
+			// var y1 = center.y - s * 0.5;
 
-			cross.setAttributeNS(null,"stroke", "white");
-			cross.setAttributeNS(null,"stroke-width", 1);
-			cross.setAttributeNS(null,"fill", "none");
-			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
+			// cross.setAttributeNS(null,"stroke", "white");
+			// cross.setAttributeNS(null,"stroke-width", 1);
+			// cross.setAttributeNS(null,"fill", "none");
+			// cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
 			
 			// Kreuze aus- bzw einblenden
 			// svgElement.appendChild(cross);
