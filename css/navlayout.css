@@ -1,4 +1,4 @@
-.sytem1 {
+/*.sytem1 {
   z-index: 1;
   width: 40vw;
   height: 50vh;
@@ -14,7 +14,7 @@
   z-index: 7;
   width: 50vw;
   height: 30vh;
-}
+}*/
 
 .sun {
   width: 8vw;
@@ -25,10 +25,10 @@
   color: #FF3262;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  margin: 0 0 0 0;
+  margin: 0 0 2vw 0;
 }
 
-#sun--1 {
+/*#sun--1 {
   position: absolute;
   top: 27vh;
   left: 63vw;
@@ -44,7 +44,7 @@
   position: absolute;
   top: -90vh;
   left: 51vw;
-}
+}*/
 
 #navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5, #navitem--sub--6 {
   position: absolute;
@@ -76,6 +76,12 @@
   line-height: 1.4em;
 }
 
+
+.nav--sunone {
+  top: 100vh;
+  left: 5vw;
+  width: 18vw;
+}
 
 /*styling for sun1 items*/
 .nav--sun1--1 {

@@ -47,7 +47,7 @@ span {
 
 
 
-@font-face {
+/*@font-face {
   font-family: "AdisKomet";
   src: url("../fnt/Komet-Bold.woff");
   font-weight: bold;
@@ -66,7 +66,7 @@ span {
   src: url("../fnt/MaratWeb-Regular.woff");
   font-weight: normal;
   font-style: normal;
-}
+}*/
 
 
 @import url("https://fonts.googleapis.com/css?family=Work+Sans:400,600,800");
@@ -93,6 +93,139 @@ body {
   background-attachment: fixed;
 }
 
+.homepage header {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10
+    background: linear-gradient(
+        to bottom, #5d9634, #5d9634 50%, #538c2b 50%, #538c2b);
+/* The rectangle in which to repeat. 
+   It can be fully wide in this case */
+  background-size: 100% 20px;
+}
+
+.homepage header .header-inner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: perspective(0)
+}
+
+header .nasa {
+    pointer-events: auto
+}
+
+header .nasa.item-white svg {
+  fill: #fff
+}
+
+header .nasa {
+    /*position: absolute;
+    top: 40px;
+    left: 40px;*/
+    height: 2em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0
+}
+
+header .nasa:focus {
+    outline: none
+}
+
+/*header .nasa svg {
+    fill: #162063
+}*/
+
+/*main:not(.homepage) header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ededed;
+    z-index: 4;
+    padding: 30px 10%
+}
+
+main:not(.homepage) header .header-inner {
+    position: relative
+}
+
+main:not(.homepage) header .nasa {
+    top: 0;
+    left: 0
+}
+
+main:not(.homepage) header .nasa svg {
+    width: 90px;
+    height: 90px
+}
+
+main:not(.homepage) header .back {
+    float: right
+}
+
+.homepage h2 {
+    font-size: 3.75em;
+    line-height: 1.15;
+    margin: 0 0 0.5em
+}
+
+.homepage section {
+    height: 100vh;
+    overflow: hidden
+}
+
+.homepage .content {
+    font-size: 1.25em
+}*/
+
+/*.presentation {
+    background-color: #010043;
+    color: white
+}
+
+.presentation h2 {
+        font-weight: 800;
+        font-size: 2.4em;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: #FF3262;
+    }
+
+.presentation .button {
+        margin-top: 2em
+}
+
+.presentation .content {
+        margin-top: 0
+    }
+
+.presentation .col-1 {
+        justify-content: flex-start;
+        padding-top: 200px
+    }
+
+.presentation .col-2 {
+        padding-left: 220px;
+        padding-right: 5%;
+        justify-content: flex-start
+    }*/
+
+
+figure {
+    margin: 0;
+    display: block;
+}
+
 img.article {
   /*height: 12em;*/
   opacity: 0.3;
@@ -100,26 +233,23 @@ img.article {
   filter: hue-rotate(180deg);
 }
 
-.overlay {
-  height:100vh;
-  position:absolute;
-  width:100vw
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0
 }
 
-.pos-vert {
-  bottom:0;
-  left:3vh;
-  position:inherit;
-  text-align:left;
-  -webkit-transform:rotate(-90deg);
-  transform:rotate(-90deg);
-  -webkit-transform-origin:0 0;
-  transform-origin:0 0;
-  z-index: -10;
-  /*width:100vh;*/
+.cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
 }
 
-.content {
+/*.content {
   height:100vh;
   overflow-x:hidden;
   overflow-y:auto;
@@ -127,18 +257,17 @@ img.article {
   perspective:1px;
   -webkit-perspective-origin:50% 50%;
   perspective-origin:50% 50%;
-}
+}*/
 
-.logo {
+/*.logo {
   margin: 1em 0 0 1em;
-}
+}*/
 
-img.logo {
+/*img.logo {
   height: 8em;
-  /*position: fixed;*/
   z-index: 100;
   fill: white;
-}
+}*/
 
 a {
   text-decoration: none;
@@ -167,13 +296,13 @@ h1 {
 
 #universe {
   position: relative;
-  width: 80vw;
-  height: 80vh;
+  /*width: 80vw;
+  height: 80vh;*/
 }
 
 .galaxy {
-  width: 90%;
-  height: 90%;
+  /*width: 90%;
+  height: 90%;*/
   position: relative;
 }
 

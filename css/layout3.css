@@ -1,32 +1,78 @@
+* {box-sizing: border-box;}
+
+.wrapper {
+  max-width: 96%;
+  margin: 2em auto 2em auto;
+}
+
+.wrapper > div {
+  /*border: 2px solid rgb(233,171,88);
+  border-radius: 5px;
+  background-color: rgba(233,171,88,.5);*/
+  padding: 1em;
+  /*color: #d9480f;*/
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+}
+.header {
+  grid-column: 1 / 6;
+  grid-row: 1;
+  margin-bottom: 4em;
+}
+.navi { 
+  grid-column: 1;
+  grid-row: 2 / 5;
+}
+.content {
+  grid-column: 2 / 6;
+  grid-row: 2 / 5;
+  padding-bottom: 4vh;
+}
+/*.four {
+  grid-column: 3 / 6;
+  grid-row: 2;
+}
+.five {
+  grid-column: 2 / 5;
+  grid-row: 3 / 5;
+}
+.six {
+  grid-column: 5;
+  grid-row: 3 / 5;
+}*/
+
 .sun {
-  width: 36vw;
-  font-size: 2.7em;
-  line-height: 1.5em;
-  font-family: 'AdisKomet', sans-serif;
+  width: 16vw;
+  font-size: 1em;
+  line-height: 1.8em;
+  /*font-family: 'AdisKomet', sans-serif;*/
   font-weight: bold;
-  color: #fc3d21;
+  color: #FF3262;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-
   margin: 0 0 0 1em;
-  position: absolute;
-  top: 15vh;
-  left: 18vw/*calc(50% - 3.2em)*/;
+  position: relative;
+  /*top: 15vh;
+  left: 18vw*//*calc(50% - 3.2em)*/
   /*margin-right: -50%;*/
   /*transform: translate(-50%, -50%)*/ 
 }
 
 #navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5 {
   position: absolute;
-  margin: 0 2em 0 2em;
+  /*margin: 0 2em 0 2em;*/
   padding: none;
 }
 
 /*date styling*/
 #navitem--sub--1 {
   top: 18.5vh;
-  left: 68vw;
-  font-family: 'AdisMarat', serif;
+  left: 20vw;
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.8em;
@@ -36,28 +82,43 @@
 
 /*teaser styling*/
 #navitem--sub--2 {
-  top: 87vh;
+  top: 17vh;
   left: 18.5vw;
-  font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.8em;
   width: 33vw;
 }
 
-/*image styling*/
+/*text styling*/
 #navitem--sub--3 {
   top: 24vh;
-  left: 35vw;
+  left: 8vw;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.8em;
+  width: 33vw;
 }
 
 /*text styling*/
 #navitem--sub--4 {
-  top: 87vh;
-  left: 54vw;
+  top: 23vh;
+  left: 12vw;
   width: 34vw;
-  font-family: 'AdisMarat', serif;
   font-weight: normal;
   font-size: 1.2em;
   line-height: 1.8em;
+}
+
+#navitem--sub--5 {
+  top: 12vh;
+  left: 22vw;
+  width: 34vw;
+  font-weight: normal;
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.reveal {
+  display: none;
 }
