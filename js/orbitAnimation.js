@@ -53,6 +53,10 @@ function getCenter(sat, opt) {
 	var parent = sat.parentNode;
 	// console.log(parent);
 	var sun = parent.querySelector(opt.originSelector);
+	while (sun !== undefined && parent !== document) {
+		parent = parent.parentNode;
+		sun = parent.querySelector(opt.originSelector);
+	}
 	 // console.log(parent.querySelector(opt.originSelector));
 	var bb = sun.getBoundingClientRect();
 	var centerX = bb.left + bb.width * opt.originCenter[0];
@@ -139,28 +143,16 @@ function init(options) {
 		satellite.style.perspective =  `${PERSPECTIVE}px`;
 
 		var satChild = satellite.children[0];
-		if (satChild.tagName !== "img" && satChild.tagName !== "a") {
-			var text = satChild.textContent;
-			satChild.textContent = "";
-			console.log(text);
-			words[opt.id] = [];
-			text = text.trim();
-			console.log(text);
-			text.trim().split(" ").forEach(function(word) {
-				if (word.split('').length > 0) {
-					var wordSpan = document.createElement("span");
-					wordSpan.textContent = word + String.fromCharCode(0x00A0);
-					satChild.appendChild(wordSpan);
-					/*
-					wordSpan.props = {
-						dx: (Math.random() - 0.5)*2.0,
-						dy: (Math.random() - 0.5)*2.0,
-						dz: (Math.random() - 0.5)*2.0
-					};
-					*/
-					words[opt.id].push(wordSpan);
-				}
-			});
+		words[opt.id] = [];
+		if (satChild !== undefined) {
+			if (satChild.tagName !== "img" && satChild.tagName !== "a") {
+				words[opt.id] = words[opt.id].concat(toSpans(satChild));
+				console.log("sat child", satChild);
+			}
+		}
+		if (satellite.textContent !== null) {
+			words[opt.id] = words[opt.id].concat(toSpans(satellite));
+			console.log("sat after", satellite);
 		}
 
 		if (DEBUG_VIEW) {
@@ -196,7 +188,7 @@ function init(options) {
 			// cross.setAttributeNS(null,"stroke-width", 1);
 			// cross.setAttributeNS(null,"fill", "none");
 			// cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
-			
+
 			// Kreuze aus- bzw einblenden
 			// svgElement.appendChild(cross);
 
@@ -323,6 +315,33 @@ function animateOrbits(timestamp) {
 	}
 	//console.log(theta);
 	window.requestAnimationFrame(animateOrbits);
+}
+
+function toSpans(theElement) {
+	var result = [];
+	var text = theElement.textContent;
+	if (text !== null) {
+		theElement.textContent = "";
+		//console.log(text);
+		text = text.trim();
+		//console.log(text);
+		text.trim().split(" ").forEach(function(word) {
+			if (word.split('').length > 0) {
+				var wordSpan = document.createElement("span");
+				wordSpan.textContent = word + String.fromCharCode(0x00A0);
+				theElement.appendChild(wordSpan);
+				/*
+				wordSpan.props = {
+					dx: (Math.random() - 0.5)*2.0,
+					dy: (Math.random() - 0.5)*2.0,
+					dz: (Math.random() - 0.5)*2.0
+				};
+				*/
+				result.push(wordSpan);
+			}
+		});
+	}
+	return result;
 }
 
 function easeOut(current, total) {
