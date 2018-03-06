@@ -93,7 +93,7 @@ body {
   background-attachment: fixed;
 }
 
-.homepage header {
+header {
     clip: rect(0, auto, auto, 0);
     position: absolute;
     top: 0;
@@ -109,8 +109,8 @@ body {
   background-size: 100% 20px;
 }
 
-.homepage header .header-inner {
-  position: fixed;
+header .header-inner {
+  /*position: fixed;*/
   top: 0;
   right: 0;
   left: 0;
@@ -129,11 +129,11 @@ header .nasa {
     /*position: absolute;
     top: 40px;
     left: 40px;*/
-    height: 2em;
+    height: 6em;
     background: transparent;
     border: 0;
     cursor: pointer;
-    padding: 0
+    padding: 2em 0 0 2em;
 }
 
 header .nasa:focus {
@@ -249,26 +249,6 @@ img.article {
     object-fit: cover
 }
 
-/*.content {
-  height:100vh;
-  overflow-x:hidden;
-  overflow-y:auto;
-  -webkit-perspective:1px;
-  perspective:1px;
-  -webkit-perspective-origin:50% 50%;
-  perspective-origin:50% 50%;
-}*/
-
-/*.logo {
-  margin: 1em 0 0 1em;
-}*/
-
-/*img.logo {
-  height: 8em;
-  z-index: 100;
-  fill: white;
-}*/
-
 a {
   text-decoration: none;
   color: white;
@@ -306,14 +286,14 @@ h1 {
   position: relative;
 }
 
-svg {
+/*svg {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0px;
   left:0px;
   background-color: none;
-}
+}*/
 
 iframe {
   width: 1000px;
