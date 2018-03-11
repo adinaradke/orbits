@@ -177,17 +177,17 @@ function init(options) {
 			// Ellipsen aus- bzw einblenden
 			// svgElement.appendChild(ellipse);
 
-			// var cross = document.createElementNS(xmlns, "path");
-			// var s = 20; //cross size in pixels
-			// var x0 = center.x;
-			// var y0 = center.y;
-			// var x1 = center.x - s * 0.5;
-			// var y1 = center.y - s * 0.5;
+			var cross = document.createElementNS(xmlns, "path");
+			var s = 20; //cross size in pixels
+			var x0 = center.x;
+			var y0 = center.y;
+			var x1 = center.x - s * 0.5;
+			var y1 = center.y - s * 0.5;
 
-			// cross.setAttributeNS(null,"stroke", "white");
-			// cross.setAttributeNS(null,"stroke-width", 1);
-			// cross.setAttributeNS(null,"fill", "none");
-			// cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
+			cross.setAttributeNS(null,"stroke", "white");
+			cross.setAttributeNS(null,"stroke-width", 3);
+			cross.setAttributeNS(null,"fill", "none");
+			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
 
 			// Kreuze aus- bzw einblenden
 			// svgElement.appendChild(cross);

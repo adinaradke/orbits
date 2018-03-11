@@ -10,135 +10,373 @@
 
   <!-- Do not edit the normalize.css file. More info: https://github.com/necolas/normalize.css/ -->
   <link href="css/normalize.css" rel="stylesheet">
-  <!-- <link href="css/style.css" rel="stylesheet"> -->
-  <link href="css/styletest.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- <link href="css/layout3.css" rel="stylesheet"> -->
 
   <script src="dist/bundle.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/nav.js"></script>
+  
+  <script type="text/javascript" defer>
+    var options = [
+      // navigation elements
+      { id: "navitem--sub--1", duration: 150, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+      { id: "navitem--sub--2", duration: 120, ellipseProportion: 1, originCenter: [0.8, 0.55] },
+      { id: "navitem--sub--3", duration: 130, ellipseProportion: 1, originCenter: [0.75, 0.45] },
+      { id: "navitem--sub--4", duration: 110, ellipseProportion: 1, originCenter: [0.9, 0.5] },
+      { id: "navitem--sub--5", duration: 140, ellipseProportion: 1, originCenter: [0.65, 0.5] },
+      { id: "navitem--sub--6", duration: 100, ellipseProportion: 1, originCenter: [0.85, 0.5] },
+      { id: "navitem--sub--7", duration: 150, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+      { id: "navitem--sub--8", duration: 120, ellipseProportion: 1, originCenter: [0.75, 0.5] },
+      { id: "navitem--sub--9", duration: 130, ellipseProportion: 1, originCenter: [0.75, 0.2] },
+
+      { id: "navitem--sub--10", duration: 110, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+      { id: "navitem--sub--11", duration: 140, ellipseProportion: 1, originCenter: [0.8, 0.55] },
+      { id: "navitem--sub--12", duration: 100, ellipseProportion: 1, originCenter: [0.75, 0.45] },
+      { id: "navitem--sub--13", duration: 150, ellipseProportion: 1, originCenter: [0.9, 0.5] },
+      { id: "navitem--sub--14", duration: 120, ellipseProportion: 1, originCenter: [0.65, 0.5] },
+      { id: "navitem--sub--15", duration: 130, ellipseProportion: 1, originCenter: [0.85, 0.5] },
+      { id: "navitem--sub--16", duration: 110, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+      
+      { id: "navitem--sub--17", duration: 140, ellipseProportion: 1, originCenter: [0.75, 0.5] },
+      { id: "navitem--sub--18", duration: 100, ellipseProportion: 1, originCenter: [0.75, 0.2] },
+      { id: "navitem--sub--19", duration: 150, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+      { id: "navitem--sub--20", duration: 120, ellipseProportion: 1, originCenter: [0.8, 0.55] },
+
+      { id: "navitem--sub--21", duration: 130, ellipseProportion: 1, originCenter: [0.75, 0.45] },
+      { id: "navitem--sub--22", duration: 110, ellipseProportion: 1, originCenter: [0.9, 0.5] },
+      { id: "navitem--sub--23", duration: 140, ellipseProportion: 1, originCenter: [0.65, 0.5] },
+      { id: "navitem--sub--24", duration: 100, ellipseProportion: 1, originCenter: [0.85, 0.5] },
+      { id: "navitem--sub--25", duration: 150, ellipseProportion: 1, originCenter: [0.7, 0.5] },
+
+      // article elements
+      { id: "navitem--sub--30", duration: 180, ellipseProportion: 0.5, originCenter: [0.5, 0.7] },
+      { id: "navitem--sub--31", duration: 210, ellipseProportion: 0.65, originCenter: [0.3, 0.2] },
+      { id: "navitem--sub--32", duration: 240, ellipseProportion: 0.55, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--33", duration: 200, ellipseProportion: 0.6, originCenter: [0.6, 0.3] },
+      { id: "navitem--sub--34", duration: 220, ellipseProportion: 0.5, originCenter: [0.4, 0.4] },
+      { id: "navitem--sub--35", duration: 190, ellipseProportion: 0.65, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--36", duration: 180, ellipseProportion: 0.55, originCenter: [0.5, 0.7] },
+      { id: "navitem--sub--37", duration: 210, ellipseProportion: 0.6, originCenter: [0.3, 0.5] },
+      { id: "navitem--sub--38", duration: 240, ellipseProportion: 0.5, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--39", duration: 200, ellipseProportion: 0.65, originCenter: [0.6, 0.5] },
+      { id: "navitem--sub--40", duration: 220, ellipseProportion: 0.55, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--41", duration: 190, ellipseProportion: 0.6, originCenter: [0.5, 0.5] },
+      { id: "navitem--sub--42", duration: 180, ellipseProportion: 0.5, originCenter: [0.5, 0.7] },
+      { id: "navitem--sub--43", duration: 210, ellipseProportion: 0.65, originCenter: [0.3, 0.5] },
+      { id: "navitem--sub--44", duration: 240, ellipseProportion: 0.55, originCenter: [0.6, 0.5] },
+      { id: "navitem--sub--45", duration: 200, ellipseProportion: 0.6, originCenter: [0.5, 0.5] },
+      { id: "navitem--sub--46", duration: 220, ellipseProportion: 0.5, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--47", duration: 190, ellipseProportion: 0.65, originCenter: [0.6, 0.5] },
+      { id: "navitem--sub--48", duration: 180, ellipseProportion: 0.55, originCenter: [0.5, 0.7] },
+      { id: "navitem--sub--49", duration: 210, ellipseProportion: 0.6, originCenter: [0.3, 0.5] },
+      { id: "navitem--sub--50", duration: 180, ellipseProportion: 0.5, originCenter: [0.4, 0.5] },
+      { id: "navitem--sub--51", duration: 200, ellipseProportion: 0.65, originCenter: [0.6, 0.5] }
+
+    ]
+
+    window.addEventListener('load', function() {
+      orbitAnimator(options);
+    });
+  </script>  
 
 </head>
 
 <body>
 
-  <main>
+  <figure class="cover">
+    <img class="background" width="2000" height="1328" src="img/17-04341_agu_meeting2017_binarykbo-4_5mb_duotone.png" alt="" />
+  </figure>
 
-    <figure class="cover">
-      <img width="2000" height="1328" src="img/17-04341_agu_meeting2017_binarykbo-4_5mb_duotone.png" class="attachment-large size-large" alt="" />  
-    </figure>
+  <div class="wrapper">
 
-    <header aria-hidden="true">
-      <div class="header-inner">
-        <button data-scroll="presentation" class="nasa item-white">
-          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="130px" height="50.595px" viewBox="0 0 277.486 107.996" enable-background="new 0 0 277.486 107.996" xml:space="preserve">
-            <g>
-              <path fill="#FFFFFF" d="M144.743,78.787h23.804h1.869c3.836,0,6.984-1.574,9.541-4.724c2.459-3.049,3.738-6.688,3.738-10.819
-                  c0-8.359-10.722-14.262-14.854-14.262h-13.476h-0.59c-1.082,0-1.968-0.492-2.656-1.279c-0.688-0.885-1.082-1.869-1.082-3.049
-                  c0-1.377,0.395-2.558,1.082-3.541c0.787-0.983,1.771-1.574,2.951-1.574h26.361V29.014h-26.854c-4.819,0-8.557,1.475-11.213,4.328
-                  c-2.361,2.656-3.541,6.197-3.541,10.427c0,4.131,1.18,7.771,3.541,10.721c2.656,3.246,5.804,4.917,9.64,4.917h14.559h1.673
-                  c0.982,0,1.77,0.295,2.359,1.082c0.688,0.787,0.983,1.771,0.983,2.854c0,1.279-0.492,2.459-1.278,3.441
-                  c-0.886,0.887-1.868,1.377-3.147,1.377h-25.968l-0.395-0.688l-9.737-31.279l-0.49-0.983c-2.361-4.82-6.296-7.181-11.705-7.181
-                  c-2.951,0-5.607,0.688-7.969,2.164c-2.459,1.476-4.032,3.639-4.918,6.394L93.89,78.686l11.901,0.101l12-37.478
-                  c0.295-1.18,0.984-1.771,1.869-1.771c0.492,0,0.885,0.197,1.18,0.492c0.295,0.394,0.492,0.787,0.592,1.279l12.099,37.478H144.743
-                  L144.743,78.787z"/>
-              <path fill="#FFFFFF" d="M56.216,44.358v34.328H45.2V40.621c0-4.918,1.18-8.361,3.737-10.427c1.967-1.476,4.918-2.262,9.05-2.262
-                  c3.344,0,6.197,0.983,8.754,2.853c2.557,1.869,4.229,4.426,5.115,7.574l7.18,25.279l1.182,3.443
-                  c0.099,0.688,0.491,1.18,0.886,1.571c0.491,0.396,0.982,0.593,1.573,0.396c0.983-0.1,1.476-0.689,1.476-1.574V29.112h11.312v37.869
-                  c0,4.229-0.983,7.377-3.049,9.642c-1.968,2.262-4.919,3.44-8.854,3.44c-3.443,0-6.295-0.688-8.559-1.867
-                  c-2.754-1.379-4.523-3.543-5.312-6.396l-8.262-28.819l-0.591-1.869c-0.196-0.688-0.59-1.18-1.082-1.672
-                  c-0.491-0.394-1.082-0.492-1.672-0.394c-0.591,0.098-0.983,0.394-1.377,0.983c-0.295,0.492-0.492,1.082-0.492,1.771V44.358
-                  L56.216,44.358z"/>
-              <path fill="#FFFFFF" d="M232.286,78.787l-12.787-42.593l-0.491-0.983c-2.36-4.82-6.296-7.181-11.705-7.181
-                  c-2.95,0-5.606,0.688-7.968,2.164c-2.459,1.476-4.033,3.639-4.918,6.394l-13.083,42.099l11.902,0.1l12-37.477
-                  c0.296-1.18,0.983-1.771,1.869-1.771c0.492,0,0.886,0.197,1.181,0.492c0.295,0.394,0.491,0.787,0.59,1.279l12.1,37.477H232.286
-                  L232.286,78.787z"/>
-            </g>
-          </svg>    
-        </button>
-      </div>
+    <header class="header">
+      <button class="nasa">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="35px" viewBox="35.243 20.498 200 70" enable-background="new 35.243 20.498 200 70" xml:space="preserve">
+        <g>
+          <path fill="#FFFFFF" d="M142.243,79.288h23.804h1.869c3.836,0,6.984-1.574,9.541-4.725c2.459-3.049,3.738-6.688,3.738-10.818
+            c0-8.359-10.722-14.262-14.854-14.262h-13.476h-0.59c-1.082,0-1.968-0.492-2.656-1.279c-0.688-0.885-1.082-1.869-1.082-3.049
+            c0-1.377,0.396-2.558,1.082-3.541c0.787-0.983,1.771-1.574,2.951-1.574h26.361V29.515h-26.854c-4.819,0-8.557,1.475-11.213,4.328
+            c-2.361,2.656-3.541,6.197-3.541,10.427c0,4.131,1.18,7.771,3.541,10.721c2.656,3.246,5.804,4.917,9.64,4.917h14.56h1.673
+            c0.981,0,1.77,0.295,2.358,1.082c0.688,0.786,0.983,1.771,0.983,2.854c0,1.279-0.492,2.459-1.278,3.441
+            c-0.886,0.887-1.867,1.377-3.146,1.377h-25.968l-0.396-0.688l-9.737-31.279l-0.489-0.983c-2.361-4.82-6.296-7.181-11.705-7.181
+            c-2.951,0-5.607,0.688-7.969,2.164c-2.459,1.476-4.032,3.639-4.918,6.394L91.39,79.187l11.9,0.102l12-37.478
+            c0.295-1.18,0.984-1.771,1.869-1.771c0.492,0,0.885,0.197,1.18,0.492c0.295,0.394,0.492,0.787,0.593,1.279l12.099,37.478H142.243
+            L142.243,79.288z"/>
+          <path fill="#FFFFFF" d="M53.716,44.859v34.328H42.7V41.122c0-4.918,1.18-8.361,3.737-10.427c1.967-1.476,4.918-2.262,9.05-2.262
+            c3.344,0,6.197,0.983,8.754,2.853c2.557,1.869,4.229,4.426,5.115,7.574l7.18,25.28l1.182,3.442c0.1,0.688,0.491,1.18,0.887,1.571
+            c0.49,0.396,0.981,0.593,1.572,0.396c0.983-0.1,1.477-0.688,1.477-1.573V29.613h11.312v37.869c0,4.229-0.982,7.377-3.049,9.643
+            c-1.968,2.262-4.919,3.439-8.854,3.439c-3.443,0-6.295-0.688-8.56-1.867c-2.754-1.379-4.522-3.543-5.312-6.396l-8.262-28.819
+            l-0.592-1.869c-0.195-0.688-0.59-1.18-1.082-1.672c-0.49-0.394-1.082-0.492-1.672-0.394c-0.591,0.098-0.982,0.394-1.377,0.983
+            c-0.295,0.492-0.492,1.082-0.492,1.771L53.716,44.859L53.716,44.859z"/>
+          <path fill="#FFFFFF" d="M229.786,79.288l-12.787-42.593l-0.491-0.983c-2.359-4.82-6.296-7.181-11.705-7.181
+            c-2.949,0-5.605,0.688-7.968,2.164c-2.459,1.476-4.033,3.639-4.918,6.394l-13.083,42.1l11.902,0.1l12-37.477
+            c0.296-1.18,0.982-1.771,1.869-1.771c0.492,0,0.886,0.197,1.181,0.492c0.295,0.394,0.491,0.787,0.59,1.279l12.101,37.477H229.786
+            L229.786,79.288z"/>
+        </g>
+        </svg>
+      </button>
     </header>
+  
 
-    <nav aria-hidden="true" class="nav-main item-red">
-      <ul>
-        <li>Topics</li>
-        <li>Missions</li>
-        <li>Galleries</li>
-        <li>tba.</li>
-        <li>About</li>        
-      </ul>
-    </nav>
+    <div class="navi">
+      
+      <div id="universe">
+        <div class="galaxy">
+          <div class="sun nav navOne"><a>Topics</a></div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--1">International Space Station</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--2">Journey to Mars</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--3">Earth</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--4">Technology</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--5">Aeronautics</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--6">Solar System & Beyond</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--7">Education</p>
+          </div>
+          <div class="satellite reveal revealOne">
+            <p id="navitem--sub--8">History</p>
+          </div>
+          <div class="satellite revealLast revealOne">
+            <p id="navitem--sub--9">Benefits to You</p>
+          </div>
+        </div>
+      </div> <!-- universe 1 (topics) end -->
+
+      <div id="universe">
+        <div class="galaxy">
+          <div class="sun nav navTwo"><a>Missions</a></div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--10">International Space Station</p>
+          </div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--11">Juno: Mission at Jupiter</p>
+          </div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--12">New Horizons: Pluto & Beyond</p>
+          </div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--13">Curiosity Mars Rover</p>
+          </div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--14">Hubble Space Telescope</p>
+          </div>
+          <div class="satellite reveal revealTwo">
+            <p id="navitem--sub--15">InSight Mars Lander</p>
+          </div>
+          <div class="satellite reveal revealLast revealTwo">
+            <p id="navitem--sub--16">All Missions A–Z</p>
+          </div>
+        </div>
+      </div> <!-- universe 2 (missions) end -->
+
+      <div id="universe">
+        <div class="galaxy">
+          <div class="sun navThree"><a>Galleries</a></div>
+
+          <div class="satellite reveal revealThree">
+            <p id="navitem--sub--17">Image of the Day</p>
+          </div>
+          <div class="satellite reveal revealThree">
+            <p id="navitem--sub--18">Image Galleries</p>
+          </div>
+          <div class="satellite reveal revealThree">
+            <p id="navitem--sub--19">Videos</p>
+          </div>
+          <div class="satellite reveal revealLast revealThree">
+            <p id="navitem--sub--20">Usage & Copyright</p>
+          </div>
+        </div>
+      </div> <!-- universe 3 (galleries) end -->
+
+      <div id="universe">
+        <div class="galaxy">
+          <div class="sun navFour"><a>About</a></div>
+
+          <div class="satellite reveal revealFour">
+            <p id="navitem--sub--21">Leadership</p>
+          </div>
+          <div class="satellite reveal revealFour">
+            <p id="navitem--sub--22">Organzation</p>
+          </div>
+          <div class="satellite reveal revealFour">
+            <p id="navitem--sub--23">Locations</p>
+          </div>
+          <div class="satellite reveal revealFour">
+            <p id="navitem--sub--24">Astronauts</p>
+          </div>
+          <div class="satellite reveal revealLast revealFour">
+            <p id="navitem--sub--25">Exhibits & Speakers</p>
+          </div>
+        </div>
+      </div> <!-- universe 4 (about) end -->
+
+    </div> <!-- navi end -->
 
 
+    <div class="content">
+      <div id="universe">
+        <div class="galaxy">
+
+            <div class="section"> <!-- article one -->
+              <div id="navitem--sub--30" class="satellite"><p class="date">March 7, 2018</p></div>
+              
+              <h1 class="sun headline">NASA Juno Findings – Jupiter’s Jet-Streams Are Unearthly</h1>
+
+              <div class="satellite">
+                <p id="navitem--sub--31" class="teaser">
+                  Data collected by NASA’s Juno mission to Jupiter indicate that the atmospheric winds of the gas-giant planet run deep into its atmosphere and last longer than similar atmospheric processes found here on Earth. The findings will improve understanding of Jupiter’s interior structure, core mass and, eventually, its origin. 
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--32" class="copy">
+                  Other Juno science results released today include that the massive cyclones that surround Jupiter’s north and south poles are enduring atmospheric features and unlike anything else encountered in our solar system. The findings are part of a four-article collection on Juno science results being published in the March 8 edition of the journal Nature.
+                </p>
+              </div>
+              
+              <div class="satellite">
+                <p id="navitem--sub--33" class="copy">
+                  “These astonishing science results are yet another example of Jupiter’s curve balls, and a testimony to the value of exploring the unknown from a new perspective with next-generation instruments.  Juno’s unique orbit and evolutionary high-precision radio science and infrared technologies enabled these paradigm-shifting discoveries,” said Scott Bolton, principal investigator of Juno from the Southwest Research Institute, San Antonio. “Juno is only about one third the way through its primary mission, and already we are seeing the beginnings of a new Jupiter.” 
+                </p>
+              </div>
+             
+              <div class="satellite">
+                <p id="navitem--sub--34" class="copy">
+                  The depth to which the roots of Jupiter’s famous zones and belts extend has been a mystery for decades. Gravity measurements collected by Juno during its close flybys of the planet have now provided an answer. 
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--35" class="copy">
+                  “Juno’s measurement of Jupiter’s gravity field indicates a north-south asymmetry, similar to the asymmetry observed in its zones and belts,” said Luciano Iess, Juno co-investigator from Sapienza University of Rome, and lead author on a Nature paper on Jupiter’s gravity field.
+                </p>
+              </div>
+              
 
 
-    <!-- <div id="universe" class="system1">
-      <div class="galaxy">
-        <h1 id="sun--1" class="sun">Missions</h1>
-        <div id="navitem--sub--1" class="nav--sun1--1" class="satellite">
-          <p>International Space Station</p>
-        </div>
-        <div id="navitem--sub--2" class="nav--sun1--2" class="satellite">
-          <p>Juno: Mission at Jupiter</p>
-        </div>
-        <div id="navitem--sub--3" class="nav--sun1--3" class="satellite">
-          <p>Hubble Space Telescope</p>
-        </div>
-        <div id="navitem--sub--4" class="nav--sun1--4" class="satellite">
-          <p>InSight Mars Lander</p>
-        </div>
-        <div id="navitem--sub--5" class="nav--sun1--5" class="satellite">
-          <a href="article.html">New Horizons: Pluto & Beyond</a>
-        </div>
-        <div id="navitem--sub--6" class="nav--sun1--6" class="satellite">
-          <p>All Missions: A–Z</p>
+              
+            </div> <!-- end article one -->
+
+            <div class="section">
+              <div id="navitem--sub--36" class="satellite"><p class="date">March 2, 2018</p></div>
+              
+              <h1 class="sun headline">Jovian ‘Twilight Zone’</h1>
+
+              <div class="satellite">
+                <p id="navitem--sub--37" class="teaser">
+                  This image captures the swirling cloud formations around the south pole of Jupiter, looking up toward the equatorial region. 
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--38" class="copy">
+                  NASA’s Juno spacecraft took the color-enhanced image during its eleventh close flyby of the gas giant planet on Feb. 7 at 7:11 a.m. PST (10:11 a.m. EST). At the time, the spacecraft was 74,896 miles (120,533 kilometers) from the tops of Jupiter’s clouds at 84.9 degrees south latitude.
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--39" class="copy">
+                  Citizen scientist Gerald Eichstädt processed this image using data from the JunoCam imager. This image was created by reprocessing raw JunoCam data using trajectory and pointing data from the spacecraft. This image is one in a series of images taken in an experiment to capture the best results for illuminated parts of Jupiter's polar region.
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--40" class="copy">
+                  To make features more visible in Jupiter’s terminator — the region where day meets night — the Juno team adjusted JunoCam so that it would perform like a portrait photographer taking multiple photos at different exposures, hoping to capture one image with the intended light balance. For JunoCam to collect enough light to reveal features in Jupiter’s dark twilight zone, the much brighter illuminated day-side of Jupiter becomes overexposed with the higher exposure.
+                </p>
+              </div>
+            </div> <!-- end article two -->
+
+            <div class="section">
+              <div id="navitem--sub--41" class="satellite"><p class="date">Feb. 23, 2018</p></div>
+              
+              <h1 class="sun headline">Time-lapse Sequence of Jupiter’s South Pole</h1>
+
+              <div class="satellite">
+                <p id="navitem--sub--42" class="teaser">
+                  This series of images captures cloud patterns near Jupiter's south pole, looking up towards the planet’s equator. 
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--43" class="copy">
+                  NASA’s Juno spacecraft took the color-enhanced time-lapse sequence of images during its eleventh close flyby of the gas giant planet on Feb. 7 between 7:21 a.m. and 8:01 a.m. PST (10:21 a.m. and 11:01 a.m. EST). At the time, the spacecraft was between 85,292 to 124,856 miles (137,264 to 200,937 kilometers) from the tops of the clouds of the planet with the images centered on latitudes from 84.1 to 75.5 degrees south.
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--44" class="copy">
+                  At first glance, the series might appear to be the same image repeated. But closer inspection reveals slight changes, which are most easily noticed by comparing the far left image with the far right image.
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--45" class="copy">
+                  Directly, the images show Jupiter. But, through slight variations in the images, they indirectly capture the motion of the Juno spacecraft itself, once again swinging around a giant planet hundreds of millions of miles from Earth.
+                </p>
+              </div>
+
+              <div class="satellite">
+                <p id="navitem--sub--46" class="copy">
+                  Citizen scientist Gerald Eichstädt processed this image using data from the JunoCam imager.
+                </p>
+              </div>
+            </div> <!-- end article three -->
+
+            <div class="section">
+              <div id="navitem--sub--47" class="satellite"><p class="date">Feb. 15, 2018</p></div>
+              
+              <h1 class="sun headline">Jupiter’s Swirling Cloud Formations</h1>
+
+              <div class="satellite">
+                <p id="navitem--sub--48" class="teaser">
+                  See swirling cloud formations in the northern area of Jupiter's north temperate belt in this new view taken by NASA’s Juno spacecraft. 
+                </p>
+              </div>
+              <div class="satellite">
+                  <p id="navitem--sub--49" class="copy">
+                    The color-enhanced image was taken on Feb. 7 at 5:42 a.m. PST (8:42 a.m. EST), as Juno performed its eleventh close flyby of Jupiter. At the time the image was taken, the spacecraft was about 5,086 miles (8,186 kilometers) from the tops of the clouds of the planet at a latitude of 39.9 degrees.
+                  </p>
+                </div>
+
+                <div class="satellite">
+                  <p id="navitem--sub--50" class="copy">
+                    Citizen scientist Kevin M. Gill processed this image using data from the JunoCam imager.
+                  </p>
+                </div>
+
+                <div class="satellite">
+                  <p id="navitem--sub--51" class="copy">
+                    JunoCam's raw images are available for the public to peruse and process into image products at: <a href="www.missionjuno.swri.edu/junocam">www.missionjuno.swri.edu/junocam</a> 
+                  </p>
+                </div>
+
+              </div> <!-- end article three -->
+            </div> <!-- end galaxy -->
+
+          <div class="contentNav">
+            <a class="prev" onclick="plusArticles(-1)">→</a>
+            <a class="next" onclick="plusArticles(1)">→</a>
+          </div>
+        
         </div>
       </div>
-    </div>
+    </div> <!-- end content -->
 
-    <div id="universe" class="system2">
-      <div class="galaxy">
-        <h1 id="sun--2" class="sun">Ab<br>—<br>out</h1>
-        <div id="navitem--sub--7" class="suntwo--1" class="satellite">
-          <p>Organization</p>
-        </div>
-        <div id="navitem--sub--8" class="suntwo--2" class="satellite">
-          <a href="article.html">Leadership</a>
-        </div>
-        <div id="navitem--sub--9" class="suntwo--3" class="satellite">
-          <p>Locations</p>
-        </div>
-        <div id="navitem--sub--10" class="suntwo--4" class="satellite">
-          <p>Exhibits & Speakers</p>
-        </div>
-        <div id="navitem--sub--11" class="suntwo--5" class="satellite">
-          <p>Astronauts</p>
-        </div>
-        <div id="navitem--sub--12" class="suntwo--6" class="satellite">
-          <p>NASA People</div>
-        </div>
-        <div id="navitem--sub--13" class="suntwo--7" class="satellite">
-          <p>Careers</p>
-        </div>
-      </div>
-    </div>
 
-    <div id="universe">
-      <div class="galaxy">
-        <h1 id="sun--3" class="sun">Gal<br>—<br>leries</h1>
-        <div id="navitem--sub--14" class="sunthree--1" class="satellite">
-          <a href="potd.html">Image of the Day</a>
-        </div>
-        <div id="navitem--sub--15" class="sunthree--2" class="satellite">
-          <p>Video Galleries</p>
-        </div>
-        <div id="navitem--sub--16" class="sunthree--3" class="satellite">
-          <p>Image Galeries</div>
-        </div>
-        <div id="navitem--sub--17" class="sunthree--4" class="satellite">
-          <p>Usage &nbsp; Copyright</p>
-        </div>
-      </div>
-    </div> -->
-
-  </main>
+  </div> <!-- end wrapper -->
 
 
 </body>
