@@ -108,7 +108,7 @@ body {
   grid-row: 1;
   margin-bottom: 3em;
 }
-.navi { 
+.navi {
   grid-column: 1 / span 3;
   grid-row: 2 / span 3;
 }
@@ -265,11 +265,15 @@ div.sun {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  margin: 0 0 0.8em 0;  
+  margin: 0 0 0.8em 0;
   position: relative;
 }
 
-#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5, 
+div.sun a:hover {
+    cursor: pointer;
+}
+
+#navitem--sub--1, #navitem--sub--2, #navitem--sub--3, #navitem--sub--4, #navitem--sub--5,
 #navitem--sub--6, #navitem--sub--7, #navitem--sub--8, #navitem--sub--9, #navitem--sub--10,
 #navitem--sub--11, #navitem--sub--12, #navitem--sub--13, #navitem--sub--14, #navitem--sub--15,
 #navitem--sub--16, #navitem--sub--17, #navitem--sub--18, #navitem--sub--19, #navitem--sub--20,
@@ -282,8 +286,8 @@ div.sun {
 }
 
 #navitem--sub--30, #navitem--sub--31, #navitem--sub--32, #navitem--sub--33, #navitem--sub--34, #navitem--sub--35,
-#navitem--sub--36, #navitem--sub--37, #navitem--sub--38, #navitem--sub--39, #navitem--sub--40, #navitem--sub--41, 
-#navitem--sub--42, #navitem--sub--43, #navitem--sub--44, #navitem--sub--45, #navitem--sub--46, #navitem--sub--47, 
+#navitem--sub--36, #navitem--sub--37, #navitem--sub--38, #navitem--sub--39, #navitem--sub--40, #navitem--sub--41,
+#navitem--sub--42, #navitem--sub--43, #navitem--sub--44, #navitem--sub--45, #navitem--sub--46, #navitem--sub--47,
 #navitem--sub--48, #navitem--sub--49, #navitem--sub--50, #navitem--sub--51 {
   position: relative;
   padding: none;
@@ -305,7 +309,3 @@ div.sun {
 .background {
   display: none;
 }
-
-
-
-

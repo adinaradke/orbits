@@ -12,7 +12,7 @@ var theta = 0;
 var then;
 var STATE = "NORMAL";
 var HOMECOMING_START;
-var HOMECOMING_DURATION = 2000; //in millis
+var HOMECOMING_DURATION = 5000; //in millis
 var DIRECTION = -1;
 var TWO_PI = Math.PI * 2;
 var RADIUS_MODIFIER = 1;
@@ -362,6 +362,11 @@ function easedSpeedMod() {
 	return easeInOut(SPEED_MODIFIER, SPEED_MODIFIER_MAX, SPEED_MODIFIER_MIN);
 }
 
+function setState(theStateName) {
+	STATE = theStateName;
+}
+
 module.exports = {
-	init
+	init,
+	setState
 }
