@@ -1,0 +1,34 @@
+{
+  "name": "orbits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pop-motion-test": "watchify js/popMotionTest.js -o dist/bundle.js -t [ babelify --presets [ env ] ] -v",
+    "watch": "watchify js/main.js -o dist/bundle.js --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adinaradke/orbits.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adinaradke/orbits/issues"
+  },
+  "homepage": "https://github.com/adinaradke/orbits#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "popmotion": "^8.1.11",
+    "request": "^2.83.0",
+    "simplex-noise": "^2.3.0",
+    "watchify": "^3.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0"
+  }
+}
