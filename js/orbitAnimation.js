@@ -120,7 +120,7 @@ function init(options) {
 		var startAngle = Math.atan2(dy / opt.ellipseProportion, dx);
 		var radiusB = Math.abs(dy / Math.sin(startAngle));
 		var radiusA = Math.abs(dx / Math.cos(startAngle));
-		console.log(dx, dy);
+		//console.log(dx, dy);
 		//var ellipseWidthFactor = option.ellipseWidthFactor || ELLIPSE_WIDTH_DEFAULT;
 		//var ellipseHeightFactor = option.ellipseHeightFactor || ELLIPSE_HEIGHT_DEFAULT;
 
@@ -147,12 +147,12 @@ function init(options) {
 		if (satChild !== undefined) {
 			if (satChild.tagName !== "img" && satChild.tagName !== "a") {
 				words[opt.id] = words[opt.id].concat(toSpans(satChild));
-				console.log("sat child", satChild);
+				//console.log("sat child", satChild);
 			}
 		}
 		if (satellite.textContent !== null) {
 			words[opt.id] = words[opt.id].concat(toSpans(satellite));
-			console.log("sat after", satellite);
+			//console.log("sat after", satellite);
 		}
 
 		if (DEBUG_VIEW) {
