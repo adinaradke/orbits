@@ -119,7 +119,7 @@ body {
 }
 
 .contentNav {
-  z-index: 500;
+  z-index: 700;
   bottom: 4vh;
 }
 
@@ -221,7 +221,7 @@ figure {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -500;
+  z-index: -700;
 }
 
 .cover img {
@@ -306,6 +306,6 @@ div.sun a:hover {
   display: none;
 }
 
-.background {
+img .background {
   display: none;
 }
