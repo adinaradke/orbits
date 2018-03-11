@@ -16,7 +16,7 @@
   <script src="dist/bundle.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/nav.js"></script>
-  
+
   <script type="text/javascript" defer>
     var options = [
       // navigation elements
@@ -37,7 +37,7 @@
       { id: "navitem--sub--14", duration: 120, ellipseProportion: 1, originCenter: [0.65, 0.5] },
       { id: "navitem--sub--15", duration: 130, ellipseProportion: 1, originCenter: [0.85, 0.5] },
       { id: "navitem--sub--16", duration: 110, ellipseProportion: 1, originCenter: [0.7, 0.5] },
-      
+
       { id: "navitem--sub--17", duration: 140, ellipseProportion: 1, originCenter: [0.75, 0.5] },
       { id: "navitem--sub--18", duration: 100, ellipseProportion: 1, originCenter: [0.75, 0.2] },
       { id: "navitem--sub--19", duration: 150, ellipseProportion: 1, originCenter: [0.7, 0.5] },
@@ -77,8 +77,9 @@
 
     window.addEventListener('load', function() {
       orbitAnimator(options);
+      showArticles(0);
     });
-  </script>  
+  </script>
 
 </head>
 
@@ -117,10 +118,10 @@
         </svg>
       </button>
     </header>
-  
+
 
     <div class="navi">
-      
+
       <div id="universe">
         <div class="galaxy">
           <div class="sun nav navOne"><a>Topics</a></div>
@@ -231,12 +232,12 @@
 
             <div class="section"> <!-- article one -->
               <div id="navitem--sub--30" class="satellite"><p class="date">March 7, 2018</p></div>
-              
+
               <h1 class="sun headline">NASA Juno Findings – Jupiter’s Jet-Streams Are Unearthly</h1>
 
               <div class="satellite">
                 <p id="navitem--sub--31" class="teaser">
-                  Data collected by NASA’s Juno mission to Jupiter indicate that the atmospheric winds of the gas-giant planet run deep into its atmosphere and last longer than similar atmospheric processes found here on Earth. The findings will improve understanding of Jupiter’s interior structure, core mass and, eventually, its origin. 
+                  Data collected by NASA’s Juno mission to Jupiter indicate that the atmospheric winds of the gas-giant planet run deep into its atmosphere and last longer than similar atmospheric processes found here on Earth. The findings will improve understanding of Jupiter’s interior structure, core mass and, eventually, its origin.
                 </p>
               </div>
 
@@ -245,16 +246,16 @@
                   Other Juno science results released today include that the massive cyclones that surround Jupiter’s north and south poles are enduring atmospheric features and unlike anything else encountered in our solar system. The findings are part of a four-article collection on Juno science results being published in the March 8 edition of the journal Nature.
                 </p>
               </div>
-              
+
               <div class="satellite">
                 <p id="navitem--sub--33" class="copy">
-                  “These astonishing science results are yet another example of Jupiter’s curve balls, and a testimony to the value of exploring the unknown from a new perspective with next-generation instruments.  Juno’s unique orbit and evolutionary high-precision radio science and infrared technologies enabled these paradigm-shifting discoveries,” said Scott Bolton, principal investigator of Juno from the Southwest Research Institute, San Antonio. “Juno is only about one third the way through its primary mission, and already we are seeing the beginnings of a new Jupiter.” 
+                  “These astonishing science results are yet another example of Jupiter’s curve balls, and a testimony to the value of exploring the unknown from a new perspective with next-generation instruments.  Juno’s unique orbit and evolutionary high-precision radio science and infrared technologies enabled these paradigm-shifting discoveries,” said Scott Bolton, principal investigator of Juno from the Southwest Research Institute, San Antonio. “Juno is only about one third the way through its primary mission, and already we are seeing the beginnings of a new Jupiter.”
                 </p>
               </div>
-             
+
               <div class="satellite">
                 <p id="navitem--sub--34" class="copy">
-                  The depth to which the roots of Jupiter’s famous zones and belts extend has been a mystery for decades. Gravity measurements collected by Juno during its close flybys of the planet have now provided an answer. 
+                  The depth to which the roots of Jupiter’s famous zones and belts extend has been a mystery for decades. Gravity measurements collected by Juno during its close flybys of the planet have now provided an answer.
                 </p>
               </div>
 
@@ -263,20 +264,20 @@
                   “Juno’s measurement of Jupiter’s gravity field indicates a north-south asymmetry, similar to the asymmetry observed in its zones and belts,” said Luciano Iess, Juno co-investigator from Sapienza University of Rome, and lead author on a Nature paper on Jupiter’s gravity field.
                 </p>
               </div>
-              
 
 
-              
+
+
             </div> <!-- end article one -->
 
             <div class="section">
               <div id="navitem--sub--36" class="satellite"><p class="date">March 2, 2018</p></div>
-              
+
               <h1 class="sun headline">Jovian ‘Twilight Zone’</h1>
 
               <div class="satellite">
                 <p id="navitem--sub--37" class="teaser">
-                  This image captures the swirling cloud formations around the south pole of Jupiter, looking up toward the equatorial region. 
+                  This image captures the swirling cloud formations around the south pole of Jupiter, looking up toward the equatorial region.
                 </p>
               </div>
 
@@ -301,12 +302,12 @@
 
             <div class="section">
               <div id="navitem--sub--41" class="satellite"><p class="date">Feb. 23, 2018</p></div>
-              
+
               <h1 class="sun headline">Time-lapse Sequence of Jupiter’s South Pole</h1>
 
               <div class="satellite">
                 <p id="navitem--sub--42" class="teaser">
-                  This series of images captures cloud patterns near Jupiter's south pole, looking up towards the planet’s equator. 
+                  This series of images captures cloud patterns near Jupiter's south pole, looking up towards the planet’s equator.
                 </p>
               </div>
 
@@ -337,12 +338,12 @@
 
             <div class="section">
               <div id="navitem--sub--47" class="satellite"><p class="date">Feb. 15, 2018</p></div>
-              
+
               <h1 class="sun headline">Jupiter’s Swirling Cloud Formations</h1>
 
               <div class="satellite">
                 <p id="navitem--sub--48" class="teaser">
-                  See swirling cloud formations in the northern area of Jupiter's north temperate belt in this new view taken by NASA’s Juno spacecraft. 
+                  See swirling cloud formations in the northern area of Jupiter's north temperate belt in this new view taken by NASA’s Juno spacecraft.
                 </p>
               </div>
               <div class="satellite">
@@ -359,7 +360,7 @@
 
                 <div class="satellite">
                   <p id="navitem--sub--51" class="copy">
-                    JunoCam's raw images are available for the public to peruse and process into image products at: <a href="www.missionjuno.swri.edu/junocam">www.missionjuno.swri.edu/junocam</a> 
+                    JunoCam's raw images are available for the public to peruse and process into image products at: <a href="www.missionjuno.swri.edu/junocam">www.missionjuno.swri.edu/junocam</a>
                   </p>
                 </div>
 
@@ -370,7 +371,7 @@
             <a class="prev" onclick="plusArticles(-1)">→</a>
             <a class="next" onclick="plusArticles(1)">→</a>
           </div>
-        
+
         </div>
       </div>
     </div> <!-- end content -->

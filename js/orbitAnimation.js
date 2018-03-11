@@ -23,7 +23,7 @@ var SPEED_MODIFIER = 1;
 var SPEED_MODIFIER_MIN = 1;
 var SPEED_MODIFIER_MAX = 5; //higher = end state
 var SPEED_MODIFIER_INC= 0.004; //higher = more speed
-var DEBUG_VIEW = true;
+var DEBUG_VIEW = false;
 var ELLIPSE_WIDTH_DEFAULT = 0.6;
 var ELLIPSE_PROPORTION = 0.4;
 var BROWNIAN_MODIFIER = 0.00001;
@@ -175,7 +175,7 @@ function init(options) {
 			ellipse.setAttributeNS(null,"fill", "none");
 
 			// Ellipsen aus- bzw einblenden
-			// svgElement.appendChild(ellipse);
+			svgElement.appendChild(ellipse);
 
 			var cross = document.createElementNS(xmlns, "path");
 			var s = 20; //cross size in pixels
@@ -190,7 +190,7 @@ function init(options) {
 			cross.setAttributeNS(null,"d","M" + x1 + " " + y0 + " L " + (x1 + s) + " " + y0 + " M " + x0 + " " + y1 + " L " + x0 + " " + (y1 + s) );
 
 			// Kreuze aus- bzw einblenden
-			// svgElement.appendChild(cross);
+			svgElement.appendChild(cross);
 
 		}
 	});
