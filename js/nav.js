@@ -38,28 +38,43 @@ $(document).ready(function(){
 
 // navigating through articles
 
-var articleIndex = 1;
-showArticles(articleIndex);
+var articleIndex = 0;
 
 function plusArticles(n) {
-    showArticles(articleIndex += n);
+    showArticles(articleIndex + n);
 }
 
 function currentArticle(n) {
-    showArticles(articleIndex = n);
+    showArticles(n);
 }
 
-function showArticles(n) {
-    var i;
+function showArticles(nextArticleIndex) {
     var articles = document.getElementsByClassName("section");
-    if (n > articles.length) {articleIndex = 1}    
-    if (n < 1) {articleIndex = articles.length}
-    for (i = 0; i < articles.length; i++) {
-        articles[i].style.display = "none"; 
+    while (nextArticleIndex < 0) {
+      nextArticleIndex += articles.length;
     }
-    
-    articles[articleIndex-1].style.display = "block"; 
+    articleIndex = nextArticleIndex % articles.length;
+    /*
+    if (n > articles.length) {
+      articleIndex = 1;
+    }
+    if (n < 1) {
+      articleIndex = articles.length;
+    }
+    */
+    //console.log(articles);
+    //console.log(articleIndex);
+    //console.log(articles[0]);
+    for (var i = 0; i < articles.length; i++) {
+        articles[i].style.display = "none";
+    }
+    //part for background switch
+    var bgPath = articles[articleIndex].getAttribute("data-bg-path");
+    if (bgPath == null) {
+      bgPath = "img/17-04341_agu_meeting2017_binarykbo-4_5mb_duotone.png";
+    }
+    var bgElement = document.querySelector("figure.cover img.background");
+    bgElement.setAttribute("src", bgPath);
+    //console.log(bgElement);
+    articles[articleIndex].style.display = "block";
   }
-
-
-
