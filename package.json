@@ -20,6 +20,7 @@
   "homepage": "https://github.com/adinaradke/orbits#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "jquery": "^3.3.1",
     "popmotion": "^8.1.11",
     "request": "^2.83.0",
     "simplex-noise": "^2.3.0",

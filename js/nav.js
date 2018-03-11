@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 // main anvigation
 $(document).ready(function(){
     $(".navOne").click(function(){
@@ -77,4 +79,10 @@ function showArticles(nextArticleIndex) {
     bgElement.setAttribute("src", bgPath);
     //console.log(bgElement);
     articles[articleIndex].style.display = "block";
+  }
+
+  module.exports = {
+    plusArticles,
+    currentArticle,
+    showArticles
   }
